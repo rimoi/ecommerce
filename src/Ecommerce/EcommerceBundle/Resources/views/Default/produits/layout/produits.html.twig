@@ -3,13 +3,13 @@
 
     <div class="container">
         <div class="row">
-           
-             <div class="span3">
-                 {%  include '::modulesUsed/navigation.html.twig' %}
+
+            <div class="span3">
+                {%  include '::modulesUsed/navigation.html.twig' %}
             </div>
             <div class="span9">
 
-               {% for i in 1..10 %}
+                {% for i in 1..10 %}
                     <li class="span3">
                         <div class="thumbnail">
                             <img src="{{ asset('img/holder.jpg')}}" alt="Zemenak" width="300" height="300">
@@ -21,7 +21,7 @@
                             </div>
                         </div>
                     </li>
-                </ul>
+                    </ul>
                 {% endfor %}
                 <div class="pagination">
                     <ul>

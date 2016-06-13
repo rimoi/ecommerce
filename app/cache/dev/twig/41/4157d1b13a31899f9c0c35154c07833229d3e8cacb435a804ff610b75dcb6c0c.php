@@ -15,8 +15,8 @@ class __TwigTemplate_28301f5126d92c24d136ac0cfa909e80521d03944eede6e8e899cbd692b
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_a7d6c61399174d590fd40a716be1d807b6246fc7872bf421096d53f3a6edd154 = $this->env->getExtension("native_profiler");
-        $__internal_a7d6c61399174d590fd40a716be1d807b6246fc7872bf421096d53f3a6edd154->enter($__internal_a7d6c61399174d590fd40a716be1d807b6246fc7872bf421096d53f3a6edd154_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/base_js.html.twig"));
+        $__internal_19442cc9a049fddb280d9373541a2cd022c116c90e1a889ca3c0176cf14992df = $this->env->getExtension("native_profiler");
+        $__internal_19442cc9a049fddb280d9373541a2cd022c116c90e1a889ca3c0176cf14992df->enter($__internal_19442cc9a049fddb280d9373541a2cd022c116c90e1a889ca3c0176cf14992df_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/base_js.html.twig"));
 
         // line 1
         echo "<script>/*<![CDATA[*/
@@ -101,6 +101,20 @@ class __TwigTemplate_28301f5126d92c24d136ac0cfa909e80521d03944eede6e8e899cbd692b
             },
 
             requestStack = [],
+
+            extractHeaders = function(xhr, stackElement) {
+                /* Here we avoid to call xhr.getResponseHeader in order to */
+                /* prevent polluting the console with CORS security errors */
+                var allHeaders = xhr.getAllResponseHeaders();
+                var ret;
+
+                if (ret = allHeaders.match(/^x-debug-token:\\s+(.*)\$/im)) {
+                    stackElement.profile = ret[1];
+                }
+                if (ret = allHeaders.match(/^x-debug-token-link:\\s+(.*)\$/im)) {
+                    stackElement.profilerUrl = ret[1];
+                }
+            },
 
             renderAjaxRequests = function() {
                 var requestCounter = document.querySelectorAll('.sf-toolbar-ajax-requests');
@@ -228,9 +242,9 @@ class __TwigTemplate_28301f5126d92c24d136ac0cfa909e80521d03944eede6e8e899cbd692b
         }
 
         ";
-        // line 210
+        // line 224
         if (array_key_exists("excluded_ajax_paths", $context)) {
-            // line 211
+            // line 225
             echo "            if (window.XMLHttpRequest && XMLHttpRequest.prototype.addEventListener) {
                 var proxied = XMLHttpRequest.prototype.open;
 
@@ -241,27 +255,27 @@ class __TwigTemplate_28301f5126d92c24d136ac0cfa909e80521d03944eede6e8e899cbd692b
                     var path = url;
                     if (url.substr(0, 1) === '/') {
                         if (0 === url.indexOf('";
-            // line 220
+            // line 234
             echo twig_escape_filter($this->env, twig_escape_filter($this->env, $this->getAttribute((isset($context["request"]) ? $context["request"] : $this->getContext($context, "request")), "basePath", array()), "js"), "html", null, true);
             echo "')) {
                             path = url.substr(";
-            // line 221
+            // line 235
             echo twig_escape_filter($this->env, twig_length_filter($this->env, $this->getAttribute((isset($context["request"]) ? $context["request"] : $this->getContext($context, "request")), "basePath", array())), "html", null, true);
             echo ");
                         }
                     }
                     else if (0 === url.indexOf('";
-            // line 224
+            // line 238
             echo twig_escape_filter($this->env, twig_escape_filter($this->env, ($this->getAttribute((isset($context["request"]) ? $context["request"] : $this->getContext($context, "request")), "schemeAndHttpHost", array()) . $this->getAttribute((isset($context["request"]) ? $context["request"] : $this->getContext($context, "request")), "basePath", array())), "js"), "html", null, true);
             echo "')) {
                         path = url.substr(";
-            // line 225
+            // line 239
             echo twig_escape_filter($this->env, twig_length_filter($this->env, ($this->getAttribute((isset($context["request"]) ? $context["request"] : $this->getContext($context, "request")), "schemeAndHttpHost", array()) . $this->getAttribute((isset($context["request"]) ? $context["request"] : $this->getContext($context, "request")), "basePath", array()))), "html", null, true);
             echo ");
                     }
 
                     if (!path.match(new RegExp(";
-            // line 228
+            // line 242
             echo twig_jsonencode_filter((isset($context["excluded_ajax_paths"]) ? $context["excluded_ajax_paths"] : $this->getContext($context, "excluded_ajax_paths")));
             echo "))) {
                         var stackElement = {
@@ -279,8 +293,8 @@ class __TwigTemplate_28301f5126d92c24d136ac0cfa909e80521d03944eede6e8e899cbd692b
                                 stackElement.duration = new Date() - stackElement.start;
                                 stackElement.loading = false;
                                 stackElement.error = self.status < 200 || self.status >= 400;
-                                stackElement.profile = self.getResponseHeader(\"X-Debug-Token\");
-                                stackElement.profilerUrl = self.getResponseHeader(\"X-Debug-Token-Link\");
+
+                                extractHeaders(self, stackElement);
 
                                 Sfjs.renderAjaxRequests();
                             }
@@ -294,7 +308,7 @@ class __TwigTemplate_28301f5126d92c24d136ac0cfa909e80521d03944eede6e8e899cbd692b
             }
         ";
         }
-        // line 258
+        // line 272
         echo "
         return {
             hasClass: hasClass,
@@ -474,7 +488,7 @@ class __TwigTemplate_28301f5126d92c24d136ac0cfa909e80521d03944eede6e8e899cbd692b
 /*]]>*/</script>
 ";
         
-        $__internal_a7d6c61399174d590fd40a716be1d807b6246fc7872bf421096d53f3a6edd154->leave($__internal_a7d6c61399174d590fd40a716be1d807b6246fc7872bf421096d53f3a6edd154_prof);
+        $__internal_19442cc9a049fddb280d9373541a2cd022c116c90e1a889ca3c0176cf14992df->leave($__internal_19442cc9a049fddb280d9373541a2cd022c116c90e1a889ca3c0176cf14992df_prof);
 
     }
 
@@ -490,7 +504,7 @@ class __TwigTemplate_28301f5126d92c24d136ac0cfa909e80521d03944eede6e8e899cbd692b
 
     public function getDebugInfo()
     {
-        return array (  298 => 258,  265 => 228,  259 => 225,  255 => 224,  249 => 221,  245 => 220,  234 => 211,  232 => 210,  25 => 5,  22 => 1,);
+        return array (  312 => 272,  279 => 242,  273 => 239,  269 => 238,  263 => 235,  259 => 234,  248 => 225,  246 => 224,  25 => 5,  22 => 1,);
     }
 }
 /* <script>/*<![CDATA[*//* */
@@ -576,6 +590,20 @@ class __TwigTemplate_28301f5126d92c24d136ac0cfa909e80521d03944eede6e8e899cbd692b
 /*             },*/
 /* */
 /*             requestStack = [],*/
+/* */
+/*             extractHeaders = function(xhr, stackElement) {*/
+/*                 /* Here we avoid to call xhr.getResponseHeader in order to *//* */
+/*                 /* prevent polluting the console with CORS security errors *//* */
+/*                 var allHeaders = xhr.getAllResponseHeaders();*/
+/*                 var ret;*/
+/* */
+/*                 if (ret = allHeaders.match(/^x-debug-token:\s+(.*)$/im)) {*/
+/*                     stackElement.profile = ret[1];*/
+/*                 }*/
+/*                 if (ret = allHeaders.match(/^x-debug-token-link:\s+(.*)$/im)) {*/
+/*                     stackElement.profilerUrl = ret[1];*/
+/*                 }*/
+/*             },*/
 /* */
 /*             renderAjaxRequests = function() {*/
 /*                 var requestCounter = document.querySelectorAll('.sf-toolbar-ajax-requests');*/
@@ -736,8 +764,8 @@ class __TwigTemplate_28301f5126d92c24d136ac0cfa909e80521d03944eede6e8e899cbd692b
 /*                                 stackElement.duration = new Date() - stackElement.start;*/
 /*                                 stackElement.loading = false;*/
 /*                                 stackElement.error = self.status < 200 || self.status >= 400;*/
-/*                                 stackElement.profile = self.getResponseHeader("X-Debug-Token");*/
-/*                                 stackElement.profilerUrl = self.getResponseHeader("X-Debug-Token-Link");*/
+/* */
+/*                                 extractHeaders(self, stackElement);*/
 /* */
 /*                                 Sfjs.renderAjaxRequests();*/
 /*                             }*/

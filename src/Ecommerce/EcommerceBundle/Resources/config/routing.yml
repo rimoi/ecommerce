@@ -16,3 +16,6 @@ validation:
 page:
     path:     /page/{id}
     defaults: { _controller: EcommerceBundle:Pages:page }
+test:
+    path:     /test
+    defaults: { _controller: EcommerceBundle:Test:ajout }

@@ -42,6 +42,7 @@ class appDevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         'livraison' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\PanierController::livraisonAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/panier/livraison',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'validation' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\PanierController::validationAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/panier/validation',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'page' => array (  0 =>   array (    0 => 'id',  ),  1 =>   array (    '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\PagesController::pageAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'variable',      1 => '/',      2 => '[^/]++',      3 => 'id',    ),    1 =>     array (      0 => 'text',      1 => '/page',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
+        'test' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\TestController::ajoutAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/test',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
     );
         }
     }
