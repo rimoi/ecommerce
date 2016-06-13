@@ -1,4 +1,13 @@
 ecommerce
 =========
 
-A Symfony project created on June 5, 2016, 4:57 am.
+Site de vente des T-shirt personnalisé en ligne.
+
+
+
+Technologie Utilisée :  Symfony 2.8 , Boostrap et Javascript ...
+
+
+Etat du site : En cours de Réalisation.
+
+
