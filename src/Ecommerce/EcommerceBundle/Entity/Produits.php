@@ -24,14 +24,14 @@ class Produits
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=100)
+     * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
 
@@ -50,26 +50,22 @@ class Produits
     private $disponible;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="catagories", type="string", length=80)
-     */
-    private $catagories;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image", type="text")
+     * @ORM\OneToOne(targetEntity="Ecommerce\EcommerceBundle\Entity\Media", cascade={"persist","remove"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $image;
 
     /**
-     * @var float
-     *
-     * @ORM\Column(name="tva", type="float")
+     * @ORM\ManyToOne(targetEntity="Ecommerce\EcommerceBundle\Entity\Categories", cascade={"persist","remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categorie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Ecommerce\EcommerceBundle\Entity\Tva", cascade={"persist","remove"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $tva;
-
 
     /**
      * Get id
@@ -178,37 +174,13 @@ class Produits
     }
 
     /**
-     * Set catagories
-     *
-     * @param string $catagories
-     *
-     * @return Produits
-     */
-    public function setCatagories($catagories)
-    {
-        $this->catagories = $catagories;
-
-        return $this;
-    }
-
-    /**
-     * Get catagories
-     *
-     * @return string
-     */
-    public function getCatagories()
-    {
-        return $this->catagories;
-    }
-
-    /**
      * Set image
      *
-     * @param string $image
+     * @param \Ecommerce\EcommerceBundle\Entity\Media $image
      *
      * @return Produits
      */
-    public function setImage($image)
+    public function setImage(\Ecommerce\EcommerceBundle\Entity\Media $image)
     {
         $this->image = $image;
 
@@ -218,7 +190,7 @@ class Produits
     /**
      * Get image
      *
-     * @return text
+     * @return \Ecommerce\EcommerceBundle\Entity\Media
      */
     public function getImage()
     {
@@ -226,13 +198,37 @@ class Produits
     }
 
     /**
-     * Set tva
+     * Set categorie
      *
-     * @param float $tva
+     * @param \Ecommerce\EcommerceBundle\Entity\Categories $categorie
      *
      * @return Produits
      */
-    public function setTva($tva)
+    public function setCategorie(\Ecommerce\EcommerceBundle\Entity\Categories $categorie)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \Ecommerce\EcommerceBundle\Entity\Categories
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * Set tva
+     *
+     * @param \Ecommerce\EcommerceBundle\Entity\Tva $tva
+     *
+     * @return Produits
+     */
+    public function setTva(\Ecommerce\EcommerceBundle\Entity\Tva $tva)
     {
         $this->tva = $tva;
 
@@ -242,11 +238,10 @@ class Produits
     /**
      * Get tva
      *
-     * @return float
+     * @return \Ecommerce\EcommerceBundle\Entity\Tva
      */
     public function getTva()
     {
         return $this->tva;
     }
 }
-

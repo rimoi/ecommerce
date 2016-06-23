@@ -4,9 +4,33 @@ namespace Ecommerce\EcommerceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Ecommerce\EcommerceBundle\Entity\Produits;
+use Ecommerce\EcommerceBundle\Form\testType;
+
+
 class TestController extends Controller
 {
-    public function ajoutAction()
+
+    public function testFormulaireAction()
+    {
+        $test = new testType();
+
+        $form =  $this->createForm($test);
+        $request = $this->get('request');
+        if($request->isMethod('POST')){
+            // ici nous allons injecter tous ce qu'on a récuprer par post dans la variable form
+            $form->bind($request);
+            //var_dump($form->getData());die;
+            $form = $this->createForm($test,array('email' =>'sidi.lekhalifa@live.fr'));
+            if($form->isValid()){
+
+            }
+        }
+        return $this->render('EcommerceBundle:Default:test.html.twig', array('form' => $form->createView()));
+    }
+
+
+
+   /* public function ajoutAction()
     {
          $em = $this->getDoctrine()->getManager();
          
@@ -40,6 +64,6 @@ class TestController extends Controller
         
        
         return $this->render('EcommerceBundle:Default:test.html.twig', array('produits' => $produits));
-    }
+    }*/
     
 }

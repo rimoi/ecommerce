@@ -18,4 +18,4 @@ page:
     defaults: { _controller: EcommerceBundle:Pages:page }
 test:
     path:     /test
-    defaults: { _controller: EcommerceBundle:Test:ajout }
+    defaults: { _controller: EcommerceBundle:Test:testFormulaire }

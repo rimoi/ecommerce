@@ -1,4 +1,4 @@
-{% extends "::layout/layout.html.twig" %}
+{#{% extends "::layout/layout.html.twig" %}
 {% block body %}
 
     <div class="container">
@@ -17,4 +17,15 @@
     </div>
 
 
-{% endblock %}
+{% endblock %}#}
+<html>
+<body>
+
+Formulaire :
+
+<form action="{{ path('test') }}" method="post">
+        {{ form(form) }}
+</form>
+
+</body>
+</html>

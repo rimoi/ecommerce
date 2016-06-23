@@ -336,7 +336,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         // test
         if ($pathinfo === '/test') {
-            return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\TestController::ajoutAction',  '_route' => 'test',);
+            return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\TestController::testFormulaireAction',  '_route' => 'test',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
