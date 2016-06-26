@@ -1,3 +1,7 @@
+pages:
+    resource: "@PagesBundle/Resources/config/routing.yml"
+    prefix:   /page
+
 utilisateurs:
     resource: "@UtilisateursBundle/Resources/config/routing.yml"
     prefix:   /

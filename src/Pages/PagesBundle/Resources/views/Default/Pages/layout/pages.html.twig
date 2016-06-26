@@ -1,0 +1,14 @@
+{% extends "::layout/layout.html.twig" %}
+
+
+{% block body %}
+        <div class="container">
+                <div class="row">
+                        <h1>{{ page.titre }}</h1>
+                        <div class="span12">
+                                {# par défault twig n'interprete pas le code html ci il est dans la base du coup pour l'interpreter il faut utiliser le filtre raw#}
+                                 <p>{{ page.contenu|raw }}</p>
+                        </div>
+                </div>
+        </div>
+{% endblock %}

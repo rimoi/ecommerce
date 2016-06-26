@@ -1,0 +1,14 @@
+<html>
+
+<body>
+
+        {% for mypage in page %}
+        <li><a href="{{path('page', {'id':mypage.id})}}">{{ mypage.titre }}</a>
+
+        {% endfor %}
+
+
+
+</body>
+
+</html>

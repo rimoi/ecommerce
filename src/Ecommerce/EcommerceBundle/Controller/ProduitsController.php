@@ -8,10 +8,28 @@ class ProduitsController extends Controller
 {
     public function produitsAction()
     {
-        return $this->render('EcommerceBundle:Default:produits/layout/produits.html.twig');
+
+        $em = $this->getDoctrine()->getManager();
+        // récuperation de tous les produits
+        $produits = $em->getRepository('EcommerceBundle:Produits')->findAll();
+
+        return $this->render('EcommerceBundle:Default:produits/layout/produits.html.twig',array('produits' => $produits));
     }
-    public function presentationAction()
+    public function presentationAction($id)
     {
-        return $this->render('EcommerceBundle:Default:produits/layout/presentation.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        // récuperation de tous les produits
+        $produits = $em->getRepository('EcommerceBundle:Produits')->find($id);
+
+        return $this->render('EcommerceBundle:Default:produits/layout/presentation.html.twig',array('produit' => $produits));
+    }
+    public function categoriesAction($categorie)
+    {
+        $em = $this->getDoctrine()->getManager();
+        // récuperation de tous les produits
+        $produits = $em->getRepository('EcommerceBundle:Produits')->byCategories($categorie);
+       //
+        return $this->render('EcommerceBundle:Default:produits/layout/produit.html.twig', array('produits' => $produits));
+
     }
 }

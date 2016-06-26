@@ -105,6 +105,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/page')) {
+            // pages_homepage
+            if ($pathinfo === '/page/test') {
+                return array (  '_controller' => 'Pages\\PagesBundle\\Controller\\PagesController::menuAction',  '_route' => 'pages_homepage',);
+            }
+
+            // page
+            if (preg_match('#^/page/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'page')), array (  '_controller' => 'Pages\\PagesBundle\\Controller\\PagesController::pageAction',));
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/log')) {
             if (0 === strpos($pathinfo, '/login')) {
                 // fos_user_security_login
@@ -302,41 +315,41 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         if (0 === strpos($pathinfo, '/p')) {
             // presentation
-            if ($pathinfo === '/produit') {
-                return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsController::presentationAction',  '_route' => 'presentation',);
+            if (0 === strpos($pathinfo, '/produit') && preg_match('#^/produit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'presentation')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsController::presentationAction',));
             }
 
-            if (0 === strpos($pathinfo, '/pa')) {
-                if (0 === strpos($pathinfo, '/panier')) {
-                    // panier
-                    if ($pathinfo === '/panier') {
-                        return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\PanierController::panierAction',  '_route' => 'panier',);
-                    }
-
-                    // livraison
-                    if ($pathinfo === '/panier/livraison') {
-                        return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\PanierController::livraisonAction',  '_route' => 'livraison',);
-                    }
-
-                    // validation
-                    if ($pathinfo === '/panier/validation') {
-                        return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\PanierController::validationAction',  '_route' => 'validation',);
-                    }
-
+            if (0 === strpos($pathinfo, '/panier')) {
+                // panier
+                if ($pathinfo === '/panier') {
+                    return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\PanierController::panierAction',  '_route' => 'panier',);
                 }
 
-                // page
-                if (0 === strpos($pathinfo, '/page') && preg_match('#^/page/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'page')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\PagesController::pageAction',));
+                // livraison
+                if ($pathinfo === '/panier/livraison') {
+                    return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\PanierController::livraisonAction',  '_route' => 'livraison',);
+                }
+
+                // validation
+                if ($pathinfo === '/panier/validation') {
+                    return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\PanierController::validationAction',  '_route' => 'validation',);
                 }
 
             }
 
         }
 
-        // test
-        if ($pathinfo === '/test') {
-            return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\TestController::testFormulaireAction',  '_route' => 'test',);
+        if (0 === strpos($pathinfo, '/categorie')) {
+            // categories
+            if ($pathinfo === '/categorie') {
+                return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\CategoriesController::menuAction',  '_route' => 'categories',);
+            }
+
+            // categorie
+            if (preg_match('#^/categorie/(?P<categorie>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'categorie')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsController::categoriesAction',));
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

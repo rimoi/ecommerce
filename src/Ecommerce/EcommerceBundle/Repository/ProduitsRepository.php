@@ -10,4 +10,14 @@ namespace Ecommerce\EcommerceBundle\Repository;
  */
 class ProduitsRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function byCategories($categorie)
+    {
+       return $this->createQueryBuilder('produits')
+            ->select('produits')
+            ->where('produits.categorie = :categorie')
+            ->orderBy('produits.id')
+            ->setParameter('categorie',$categorie)
+            ->getQuery()
+            ->getResult();
+    }
 }
