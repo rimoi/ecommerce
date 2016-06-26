@@ -15,9 +15,24 @@ class ProduitsRepository extends \Doctrine\ORM\EntityRepository
        return $this->createQueryBuilder('produits')
             ->select('produits')
             ->where('produits.categorie = :categorie')
+            ->andWhere('produits.disponible = 1')
             ->orderBy('produits.id')
             ->setParameter('categorie',$categorie)
             ->getQuery()
             ->getResult();
+    }
+
+    public function recherche($chaine){
+        return $this->createQueryBuilder('u')
+            ->select('u')
+            // pour recherche il faut utiliser en like pas en égale
+            ->where('u.nom like :chaine')
+            // vérification si le produit est disponible ou pas
+            ->andWhere('u.disponible = 1')
+            ->orderBy('u.id')
+            ->setParameter('chaine',$chaine)
+            ->getQuery()
+            ->getResult()
+            ;
     }
 }

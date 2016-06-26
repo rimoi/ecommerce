@@ -19,8 +19,8 @@ class __TwigTemplate_92d5ea6626711051b877152c35b7ce5bb0c161ea542d43f21eb176d422c
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_44c4aa209c947ad2c5fea0af88f3e55b1090abfe815006ec6a717643c9411903 = $this->env->getExtension("native_profiler");
-        $__internal_44c4aa209c947ad2c5fea0af88f3e55b1090abfe815006ec6a717643c9411903->enter($__internal_44c4aa209c947ad2c5fea0af88f3e55b1090abfe815006ec6a717643c9411903_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::/layout/layout.html.twig"));
+        $__internal_8e6fd67367e8e9189e3a600dfe1dbb9fd009b6effb8f83c36d80cf74e45ef3eb = $this->env->getExtension("native_profiler");
+        $__internal_8e6fd67367e8e9189e3a600dfe1dbb9fd009b6effb8f83c36d80cf74e45ef3eb->enter($__internal_8e6fd67367e8e9189e3a600dfe1dbb9fd009b6effb8f83c36d80cf74e45ef3eb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::/layout/layout.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -70,11 +70,11 @@ class __TwigTemplate_92d5ea6626711051b877152c35b7ce5bb0c161ea542d43f21eb176d422c
         echo $this->env->getExtension('routing')->getPath("produits");
         echo "\">Zemenak</a>
                     <div class=\"nav-collapse collapse\">
-                        <form class=\"navbar-form form-search pull-right\">
-                            <input id=\"Search\" name=\"Search\" type=\"text\" class=\"input-medium search-query\">
-                            <button type=\"submit\" class=\"btn\">Rechercher</button>
-                        </form>
-                    </div>
+                        ";
+        // line 25
+        echo $this->env->getExtension('actions')->renderUri($this->env->getExtension('http_kernel')->controller("EcommerceBundle:Produits:recherche"), array());
+        // line 26
+        echo "                    </div>
                 </div>
             </div>
         </div>
@@ -82,9 +82,9 @@ class __TwigTemplate_92d5ea6626711051b877152c35b7ce5bb0c161ea542d43f21eb176d422c
         
         
         ";
-        // line 36
+        // line 33
         $this->displayBlock('body', $context, $blocks);
-        // line 39
+        // line 36
         echo "
         <hr />
         <footer id=\"footer\" class=\"vspace20\">
@@ -94,98 +94,110 @@ class __TwigTemplate_92d5ea6626711051b877152c35b7ce5bb0c161ea542d43f21eb176d422c
                         <h4>Informations</h4>
                         <ul class=\"nav nav-stacked\">
                             ";
-        // line 48
+        // line 45
         echo "                            ";
         echo $this->env->getExtension('actions')->renderUri($this->env->getExtension('http_kernel')->controller("PagesBundle:Pages:menu"), array());
-        // line 49
+        // line 46
         echo "                        </ul>
                     </div>
 
                     <div class=\"span4\">
                         <h4>Notre entrepôt</h4>
-                        <p><i class=\"icon-map-marker\"></i>&nbsp;Bordeaux 33 000 - 3 rue des jardins</p>
+                        <p><i class=\"icon-map-marker\"></i>&nbsp;";
+        // line 51
+        echo twig_escape_filter($this->env, (isset($context["adresse"]) ? $context["adresse"] : $this->getContext($context, "adresse")), "html", null, true);
+        echo "</p>
                     </div>
 
                     <div class=\"span2\">
                         <h4>Nous contacter</h4>
-                        <p><i class=\"icon-phone\"></i>&nbsp;Tel: +(33) 6 61 69 86 30</p>
-                        <p><i class=\"icon-print\"></i>&nbsp;Fax: 02 35 00 00 00</p>
+                        <p><i class=\"icon-phone\"></i>&nbsp;Tel: ";
+        // line 56
+        echo twig_escape_filter($this->env, (isset($context["telephone"]) ? $context["telephone"] : $this->getContext($context, "telephone")), "html", null, true);
+        echo "</p>
+                        <p><i class=\"icon-print\"></i>&nbsp;Fax: ";
+        // line 57
+        echo twig_escape_filter($this->env, (isset($context["fax"]) ? $context["fax"] : $this->getContext($context, "fax")), "html", null, true);
+        echo "</p>
                     </div>
                 </div>
 
                 <div class=\"row\">
                     <div class=\"span4\">
-                        <p>&copy; Copyright 2016 - Zemenak</p>
+                        <p>&copy; Copyright ";
+        // line 63
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
+        echo " - Zemenak</p>
                     </div>
                 </div>
             </div>
         </footer>
         <script src=\"";
-        // line 71
+        // line 68
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("js/jquery-1.10.0.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 72
+        // line 69
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("js/bootstrap.js"), "html", null, true);
         echo "\"></script>
         ";
-        // line 73
+        // line 70
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 74
+        // line 71
         echo "
     </body>
 </html>
 ";
         
-        $__internal_44c4aa209c947ad2c5fea0af88f3e55b1090abfe815006ec6a717643c9411903->leave($__internal_44c4aa209c947ad2c5fea0af88f3e55b1090abfe815006ec6a717643c9411903_prof);
+        $__internal_8e6fd67367e8e9189e3a600dfe1dbb9fd009b6effb8f83c36d80cf74e45ef3eb->leave($__internal_8e6fd67367e8e9189e3a600dfe1dbb9fd009b6effb8f83c36d80cf74e45ef3eb_prof);
 
     }
 
     // line 5
     public function block_title($context, array $blocks = array())
     {
-        $__internal_aec7daf22831649e5e542e30440cbdec485199d1567556f626cc6552ec09167e = $this->env->getExtension("native_profiler");
-        $__internal_aec7daf22831649e5e542e30440cbdec485199d1567556f626cc6552ec09167e->enter($__internal_aec7daf22831649e5e542e30440cbdec485199d1567556f626cc6552ec09167e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_a882d5ea28a410abbe537336e2577eca4cd7954fc443df2cba5a3b8c6a39badd = $this->env->getExtension("native_profiler");
+        $__internal_a882d5ea28a410abbe537336e2577eca4cd7954fc443df2cba5a3b8c6a39badd->enter($__internal_a882d5ea28a410abbe537336e2577eca4cd7954fc443df2cba5a3b8c6a39badd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Bienvenue Sur Zemenak";
         
-        $__internal_aec7daf22831649e5e542e30440cbdec485199d1567556f626cc6552ec09167e->leave($__internal_aec7daf22831649e5e542e30440cbdec485199d1567556f626cc6552ec09167e_prof);
+        $__internal_a882d5ea28a410abbe537336e2577eca4cd7954fc443df2cba5a3b8c6a39badd->leave($__internal_a882d5ea28a410abbe537336e2577eca4cd7954fc443df2cba5a3b8c6a39badd_prof);
 
     }
 
     // line 11
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_b6f4a8670fa3bc531fc189a02951cceedd6cf5ea8dae94cea7ba698abe840e97 = $this->env->getExtension("native_profiler");
-        $__internal_b6f4a8670fa3bc531fc189a02951cceedd6cf5ea8dae94cea7ba698abe840e97->enter($__internal_b6f4a8670fa3bc531fc189a02951cceedd6cf5ea8dae94cea7ba698abe840e97_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_c023b544c8183c5c6d7d4ce8ba028b656d3dca120d1caebac83d8ed0dece492f = $this->env->getExtension("native_profiler");
+        $__internal_c023b544c8183c5c6d7d4ce8ba028b656d3dca120d1caebac83d8ed0dece492f->enter($__internal_c023b544c8183c5c6d7d4ce8ba028b656d3dca120d1caebac83d8ed0dece492f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         
-        $__internal_b6f4a8670fa3bc531fc189a02951cceedd6cf5ea8dae94cea7ba698abe840e97->leave($__internal_b6f4a8670fa3bc531fc189a02951cceedd6cf5ea8dae94cea7ba698abe840e97_prof);
+        $__internal_c023b544c8183c5c6d7d4ce8ba028b656d3dca120d1caebac83d8ed0dece492f->leave($__internal_c023b544c8183c5c6d7d4ce8ba028b656d3dca120d1caebac83d8ed0dece492f_prof);
 
     }
 
-    // line 36
+    // line 33
     public function block_body($context, array $blocks = array())
     {
-        $__internal_af365d85063591f2f8f6cf2d22d6222601d6e02ee4906449f5af2213fb195a47 = $this->env->getExtension("native_profiler");
-        $__internal_af365d85063591f2f8f6cf2d22d6222601d6e02ee4906449f5af2213fb195a47->enter($__internal_af365d85063591f2f8f6cf2d22d6222601d6e02ee4906449f5af2213fb195a47_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_c81cc8da3a5c865eaa36fa531c5af333188f9768559c973b0b2b66a754544416 = $this->env->getExtension("native_profiler");
+        $__internal_c81cc8da3a5c865eaa36fa531c5af333188f9768559c973b0b2b66a754544416->enter($__internal_c81cc8da3a5c865eaa36fa531c5af333188f9768559c973b0b2b66a754544416_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 37
+        // line 34
         echo "        
         ";
         
-        $__internal_af365d85063591f2f8f6cf2d22d6222601d6e02ee4906449f5af2213fb195a47->leave($__internal_af365d85063591f2f8f6cf2d22d6222601d6e02ee4906449f5af2213fb195a47_prof);
+        $__internal_c81cc8da3a5c865eaa36fa531c5af333188f9768559c973b0b2b66a754544416->leave($__internal_c81cc8da3a5c865eaa36fa531c5af333188f9768559c973b0b2b66a754544416_prof);
 
     }
 
-    // line 73
+    // line 70
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_69a9eec4a1d63c9903ab28a88dc00716a79488003019bc9ead37f395b497792a = $this->env->getExtension("native_profiler");
-        $__internal_69a9eec4a1d63c9903ab28a88dc00716a79488003019bc9ead37f395b497792a->enter($__internal_69a9eec4a1d63c9903ab28a88dc00716a79488003019bc9ead37f395b497792a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_4fef87fb05161af19c2c3a5d90bbe0b1893da5e939bb8116384167de3fe84172 = $this->env->getExtension("native_profiler");
+        $__internal_4fef87fb05161af19c2c3a5d90bbe0b1893da5e939bb8116384167de3fe84172->enter($__internal_4fef87fb05161af19c2c3a5d90bbe0b1893da5e939bb8116384167de3fe84172_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         
-        $__internal_69a9eec4a1d63c9903ab28a88dc00716a79488003019bc9ead37f395b497792a->leave($__internal_69a9eec4a1d63c9903ab28a88dc00716a79488003019bc9ead37f395b497792a_prof);
+        $__internal_4fef87fb05161af19c2c3a5d90bbe0b1893da5e939bb8116384167de3fe84172->leave($__internal_4fef87fb05161af19c2c3a5d90bbe0b1893da5e939bb8116384167de3fe84172_prof);
 
     }
 
@@ -201,7 +213,7 @@ class __TwigTemplate_92d5ea6626711051b877152c35b7ce5bb0c161ea542d43f21eb176d422c
 
     public function getDebugInfo()
     {
-        return array (  182 => 73,  174 => 37,  168 => 36,  157 => 11,  145 => 5,  135 => 74,  133 => 73,  129 => 72,  125 => 71,  101 => 49,  98 => 48,  88 => 39,  86 => 36,  70 => 23,  55 => 12,  53 => 11,  49 => 10,  45 => 9,  41 => 8,  37 => 7,  32 => 5,  26 => 1,);
+        return array (  194 => 70,  186 => 34,  180 => 33,  169 => 11,  157 => 5,  147 => 71,  145 => 70,  141 => 69,  137 => 68,  129 => 63,  120 => 57,  116 => 56,  108 => 51,  101 => 46,  98 => 45,  88 => 36,  86 => 33,  77 => 26,  75 => 25,  70 => 23,  55 => 12,  53 => 11,  49 => 10,  45 => 9,  41 => 8,  37 => 7,  32 => 5,  26 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -228,10 +240,7 @@ class __TwigTemplate_92d5ea6626711051b877152c35b7ce5bb0c161ea542d43f21eb176d422c
 /*                     </button>*/
 /*                     <a class="brand" href="{{ path('produits')}}">Zemenak</a>*/
 /*                     <div class="nav-collapse collapse">*/
-/*                         <form class="navbar-form form-search pull-right">*/
-/*                             <input id="Search" name="Search" type="text" class="input-medium search-query">*/
-/*                             <button type="submit" class="btn">Rechercher</button>*/
-/*                         </form>*/
+/*                         {% render(controller('EcommerceBundle:Produits:recherche')) %}*/
 /*                     </div>*/
 /*                 </div>*/
 /*             </div>*/
@@ -257,19 +266,19 @@ class __TwigTemplate_92d5ea6626711051b877152c35b7ce5bb0c161ea542d43f21eb176d422c
 /* */
 /*                     <div class="span4">*/
 /*                         <h4>Notre entrepôt</h4>*/
-/*                         <p><i class="icon-map-marker"></i>&nbsp;Bordeaux 33 000 - 3 rue des jardins</p>*/
+/*                         <p><i class="icon-map-marker"></i>&nbsp;{{ adresse }}</p>*/
 /*                     </div>*/
 /* */
 /*                     <div class="span2">*/
 /*                         <h4>Nous contacter</h4>*/
-/*                         <p><i class="icon-phone"></i>&nbsp;Tel: +(33) 6 61 69 86 30</p>*/
-/*                         <p><i class="icon-print"></i>&nbsp;Fax: 02 35 00 00 00</p>*/
+/*                         <p><i class="icon-phone"></i>&nbsp;Tel: {{ telephone }}</p>*/
+/*                         <p><i class="icon-print"></i>&nbsp;Fax: {{ fax }}</p>*/
 /*                     </div>*/
 /*                 </div>*/
 /* */
 /*                 <div class="row">*/
 /*                     <div class="span4">*/
-/*                         <p>&copy; Copyright 2016 - Zemenak</p>*/
+/*                         <p>&copy; Copyright {{ "now"|date('Y') }} - Zemenak</p>*/
 /*                     </div>*/
 /*                 </div>*/
 /*             </div>*/

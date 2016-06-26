@@ -293,35 +293,25 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // fos_user_change_password
-        if ($pathinfo === '/profile/change-password') {
-            if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                goto not_fos_user_change_password;
-            }
-
-            return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ChangePasswordController::changePasswordAction',  '_route' => 'fos_user_change_password',);
-        }
-        not_fos_user_change_password:
-
-        // produits
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'produits');
-            }
-
-            return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsController::produitsAction',  '_route' => 'produits',);
-        }
-
         if (0 === strpos($pathinfo, '/p')) {
-            // presentation
-            if (0 === strpos($pathinfo, '/produit') && preg_match('#^/produit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'presentation')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsController::presentationAction',));
+            // fos_user_change_password
+            if ($pathinfo === '/profile/change-password') {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_fos_user_change_password;
+                }
+
+                return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ChangePasswordController::changePasswordAction',  '_route' => 'fos_user_change_password',);
             }
+            not_fos_user_change_password:
 
             if (0 === strpos($pathinfo, '/panier')) {
                 // panier
-                if ($pathinfo === '/panier') {
+                if (rtrim($pathinfo, '/') === '/panier') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'panier');
+                    }
+
                     return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\PanierController::panierAction',  '_route' => 'panier',);
                 }
 
@@ -339,17 +329,28 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/categorie')) {
-            // categories
-            if ($pathinfo === '/categorie') {
-                return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\CategoriesController::menuAction',  '_route' => 'categories',);
+        // produits
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'produits');
             }
 
-            // categorie
-            if (preg_match('#^/categorie/(?P<categorie>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'categorie')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsController::categoriesAction',));
-            }
+            return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsController::produitsAction',  '_route' => 'produits',);
+        }
 
+        // presentation
+        if (0 === strpos($pathinfo, '/produit') && preg_match('#^/produit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'presentation')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsController::presentationAction',));
+        }
+
+        // categorie
+        if (0 === strpos($pathinfo, '/categorie') && preg_match('#^/categorie/(?P<categorie>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'categorie')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsController::categoriesAction',));
+        }
+
+        // rechercheProduits
+        if ($pathinfo === '/recherche') {
+            return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsController::rechercheTraitementAction',  '_route' => 'rechercheProduits',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
