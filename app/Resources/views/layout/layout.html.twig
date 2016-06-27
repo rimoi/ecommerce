@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>{% block title %}Bienvenue Sur Zemenak{% endblock %}</title>
+
+        <title>{% block titre %}Ecommerce T-shirt Personalisé - By Zemenak{% endblock %}</title>
+        <meta name="keywords"  content="{% block motsCles %} {% endblock %}" charset="UTF-8" />
+        <meta name="description" content="{% block description %} {% endblock %}" />
         <!-- CSS -->
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.css')}}" />
@@ -27,11 +29,11 @@
                 </div>
             </div>
         </div>
-            
-        
-        
+
+
+
         {% block body %}
-        
+
         {% endblock %}
 
         <hr />

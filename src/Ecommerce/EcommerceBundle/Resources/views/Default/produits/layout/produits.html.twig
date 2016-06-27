@@ -1,12 +1,22 @@
 {% extends "::/layout/layout.html.twig" %}
+
+
+
 {% block body %}
+
+
 
     <div class="container">
         <div class="row">
 
             <div class="span3" align="left">
                 {%  include '::modulesUsed/navigation.html.twig' %}
-                {%  include '::modulesUsed/utilisateur.html.twig' %}
+                {# Vérification si l'utilisateur est identifié #}
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {%  include 'UtilisateursBundle:Default:modulesUsed/utilisateursConnecte.html.twig' %}
+                {% else %}
+                    {%  include 'UtilisateursBundle:Default:modulesUsed/utilisateurs.html.twig' %}
+                {% endif %}
             </div>
 
             <div class="span9">
@@ -19,7 +29,7 @@
                                 <img src="{{ produit.image.path }}" alt="Zemenak" width="300" height="150">
                                 <div class="caption">
                                     <h4>{{ produit.nom }}</h4>
-                                    <p>{{ produit.prix }} £</p>
+                                    <p>{{ produit.prix|tva(produit.tva.multiplicate) }} £</p>
                                     <a class="btn btn-primary" href="{{path('presentation', {'id': produit.id})}}">Plus d'infos</a>
                                     <a class="btn btn-success" href="{{path('panier')}}">Ajouter au panier</a>
                                 </div>
