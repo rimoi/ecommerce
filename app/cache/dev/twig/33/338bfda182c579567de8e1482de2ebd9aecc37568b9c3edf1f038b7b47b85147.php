@@ -21,20 +21,20 @@ class __TwigTemplate_8ece41584639eab10539a32669105389800b4e9e5abce29189b0d286a34
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_06a3a1c46c6273f81fabe09b05437870d8933a79628aa33175f1452f4b4cbe69 = $this->env->getExtension("native_profiler");
-        $__internal_06a3a1c46c6273f81fabe09b05437870d8933a79628aa33175f1452f4b4cbe69->enter($__internal_06a3a1c46c6273f81fabe09b05437870d8933a79628aa33175f1452f4b4cbe69_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EcommerceBundle:Default:produits/layout/produits.html.twig"));
+        $__internal_14bdb37ac8130814c3c70045624b4d7de49ea00e3805d59efa43af5c3468befd = $this->env->getExtension("native_profiler");
+        $__internal_14bdb37ac8130814c3c70045624b4d7de49ea00e3805d59efa43af5c3468befd->enter($__internal_14bdb37ac8130814c3c70045624b4d7de49ea00e3805d59efa43af5c3468befd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EcommerceBundle:Default:produits/layout/produits.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_06a3a1c46c6273f81fabe09b05437870d8933a79628aa33175f1452f4b4cbe69->leave($__internal_06a3a1c46c6273f81fabe09b05437870d8933a79628aa33175f1452f4b4cbe69_prof);
+        $__internal_14bdb37ac8130814c3c70045624b4d7de49ea00e3805d59efa43af5c3468befd->leave($__internal_14bdb37ac8130814c3c70045624b4d7de49ea00e3805d59efa43af5c3468befd_prof);
 
     }
 
     // line 5
     public function block_body($context, array $blocks = array())
     {
-        $__internal_49516b33b82a6dd79bd68ba523da4c417dfceba43ceb8049dc7b635daacce42d = $this->env->getExtension("native_profiler");
-        $__internal_49516b33b82a6dd79bd68ba523da4c417dfceba43ceb8049dc7b635daacce42d->enter($__internal_49516b33b82a6dd79bd68ba523da4c417dfceba43ceb8049dc7b635daacce42d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_5a2b2eb5563cf164bc055ffe1b4cb39bc83f7f477ee935f5df4ca0a7a233b276 = $this->env->getExtension("native_profiler");
+        $__internal_5a2b2eb5563cf164bc055ffe1b4cb39bc83f7f477ee935f5df4ca0a7a233b276->enter($__internal_5a2b2eb5563cf164bc055ffe1b4cb39bc83f7f477ee935f5df4ca0a7a233b276_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
         echo "
@@ -101,7 +101,7 @@ class __TwigTemplate_8ece41584639eab10539a32669105389800b4e9e5abce29189b0d286a34
                 echo "\">Plus d'infos</a>
                                     <a class=\"btn btn-success\" href=\"";
                 // line 34
-                echo $this->env->getExtension('routing')->getPath("panier");
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ajouter", array("id" => $this->getAttribute($context["produit"], "id", array()))), "html", null, true);
                 echo "\">Ajouter au panier</a>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@ class __TwigTemplate_8ece41584639eab10539a32669105389800b4e9e5abce29189b0d286a34
 
 ";
         
-        $__internal_49516b33b82a6dd79bd68ba523da4c417dfceba43ceb8049dc7b635daacce42d->leave($__internal_49516b33b82a6dd79bd68ba523da4c417dfceba43ceb8049dc7b635daacce42d_prof);
+        $__internal_5a2b2eb5563cf164bc055ffe1b4cb39bc83f7f477ee935f5df4ca0a7a233b276->leave($__internal_5a2b2eb5563cf164bc055ffe1b4cb39bc83f7f477ee935f5df4ca0a7a233b276_prof);
 
     }
 
@@ -192,7 +192,7 @@ class __TwigTemplate_8ece41584639eab10539a32669105389800b4e9e5abce29189b0d286a34
 /*                                     <h4>{{ produit.nom }}</h4>*/
 /*                                     <p>{{ produit.prix|tva(produit.tva.multiplicate) }} £</p>*/
 /*                                     <a class="btn btn-primary" href="{{path('presentation', {'id': produit.id})}}">Plus d'infos</a>*/
-/*                                     <a class="btn btn-success" href="{{path('panier')}}">Ajouter au panier</a>*/
+/*                                     <a class="btn btn-success" href="{{path('ajouter', {'id':produit.id})}}">Ajouter au panier</a>*/
 /*                                 </div>*/
 /*                             </div>*/
 /*                         </li>*/

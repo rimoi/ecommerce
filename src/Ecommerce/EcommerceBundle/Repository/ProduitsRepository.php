@@ -35,4 +35,14 @@ class ProduitsRepository extends \Doctrine\ORM\EntityRepository
             ->getResult()
             ;
     }
+    public function findArray($array){
+        return $this->createQueryBuilder('u')
+            ->select('u')
+            // pour verifieR si un élement est dans une tableaux
+            ->where('u.id in (:array)')
+            ->setParameter('array',$array)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
