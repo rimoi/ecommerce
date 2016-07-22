@@ -21,6 +21,7 @@
 						<h5>{{ produit.categorie.nom }}</h5>
 						<p>{{ produit.description }}</p>
 						<h4>{{ produit.prix|tva(produit.tva.multiplicate) }} €</h4>
+						{% if panier[produit.id] is not defined %}
 
 						<form action="{{ path('ajouter', {'id': produit.id}) }}" method="get">
 					
@@ -32,10 +33,16 @@
 							</select>
 
 							<div>
+
 							    <button class="btn btn-primary">Ajouter au panier</button>
 							</div>
 						</form>
-						
+						{% else %}
+								<div>
+										<a href="{{ path('panier') }}" class="btn btn-danger">Désolé, Le produit existe déjà dans le panier</a>
+
+								</div>
+						{% endif %}
 					</div>
 				</div>
 
