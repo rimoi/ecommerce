@@ -15,8 +15,8 @@ class __TwigTemplate_bb48f442d0360e0b5523eb42abab1588b9538640e2752c35f5d768285da
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_f503b53c7caab36f2cebb45941b7ff7cdb9ae91494fdad44e2e3b329da547b4e = $this->env->getExtension("native_profiler");
-        $__internal_f503b53c7caab36f2cebb45941b7ff7cdb9ae91494fdad44e2e3b329da547b4e->enter($__internal_f503b53c7caab36f2cebb45941b7ff7cdb9ae91494fdad44e2e3b329da547b4e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EcommerceBundle:Default:categories/modulesUsed/menu.html.twig"));
+        $__internal_04cd3ded1fbb1e97ee2cda1425d467689b4019d9d19bfa6a0f4c38ed8dae8b1a = $this->env->getExtension("native_profiler");
+        $__internal_04cd3ded1fbb1e97ee2cda1425d467689b4019d9d19bfa6a0f4c38ed8dae8b1a->enter($__internal_04cd3ded1fbb1e97ee2cda1425d467689b4019d9d19bfa6a0f4c38ed8dae8b1a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EcommerceBundle:Default:categories/modulesUsed/menu.html.twig"));
 
         // line 1
         echo "
@@ -39,7 +39,7 @@ class __TwigTemplate_bb48f442d0360e0b5523eb42abab1588b9538640e2752c35f5d768285da
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         
-        $__internal_f503b53c7caab36f2cebb45941b7ff7cdb9ae91494fdad44e2e3b329da547b4e->leave($__internal_f503b53c7caab36f2cebb45941b7ff7cdb9ae91494fdad44e2e3b329da547b4e_prof);
+        $__internal_04cd3ded1fbb1e97ee2cda1425d467689b4019d9d19bfa6a0f4c38ed8dae8b1a->leave($__internal_04cd3ded1fbb1e97ee2cda1425d467689b4019d9d19bfa6a0f4c38ed8dae8b1a_prof);
 
     }
 

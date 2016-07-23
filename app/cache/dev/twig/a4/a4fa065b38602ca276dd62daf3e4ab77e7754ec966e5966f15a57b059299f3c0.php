@@ -1,6 +1,6 @@
 <?php
 
-/* UtilisateursBundle:Default/modulesUsed:utilisateursConnecte.html.twig */
+/* UtilisateursBundle:Default:modulesUsed/utilisateursConnecte.html.twig */
 class __TwigTemplate_98ef588abea8f53c17c481c95b71d548b707fb29c8dd897b0a5e2389d55a90df extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -15,8 +15,8 @@ class __TwigTemplate_98ef588abea8f53c17c481c95b71d548b707fb29c8dd897b0a5e2389d55
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_c684732a015790159a3fc5295fbb302b2ba6ff78f6f6a8459c6176c116cfba5b = $this->env->getExtension("native_profiler");
-        $__internal_c684732a015790159a3fc5295fbb302b2ba6ff78f6f6a8459c6176c116cfba5b->enter($__internal_c684732a015790159a3fc5295fbb302b2ba6ff78f6f6a8459c6176c116cfba5b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "UtilisateursBundle:Default/modulesUsed:utilisateursConnecte.html.twig"));
+        $__internal_35f7f5665db9ff8aae8e42ca97cf789564862d57b2d0de36092217ff1c84baa9 = $this->env->getExtension("native_profiler");
+        $__internal_35f7f5665db9ff8aae8e42ca97cf789564862d57b2d0de36092217ff1c84baa9->enter($__internal_35f7f5665db9ff8aae8e42ca97cf789564862d57b2d0de36092217ff1c84baa9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "UtilisateursBundle:Default:modulesUsed/utilisateursConnecte.html.twig"));
 
         // line 1
         echo "<div class=\"well\">
@@ -54,13 +54,13 @@ class __TwigTemplate_98ef588abea8f53c17c481c95b71d548b707fb29c8dd897b0a5e2389d55
     </ul>
 </div>";
         
-        $__internal_c684732a015790159a3fc5295fbb302b2ba6ff78f6f6a8459c6176c116cfba5b->leave($__internal_c684732a015790159a3fc5295fbb302b2ba6ff78f6f6a8459c6176c116cfba5b_prof);
+        $__internal_35f7f5665db9ff8aae8e42ca97cf789564862d57b2d0de36092217ff1c84baa9->leave($__internal_35f7f5665db9ff8aae8e42ca97cf789564862d57b2d0de36092217ff1c84baa9_prof);
 
     }
 
     public function getTemplateName()
     {
-        return "UtilisateursBundle:Default/modulesUsed:utilisateursConnecte.html.twig";
+        return "UtilisateursBundle:Default:modulesUsed/utilisateursConnecte.html.twig";
     }
 
     public function isTraitable()

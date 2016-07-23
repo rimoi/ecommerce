@@ -21,20 +21,20 @@ class __TwigTemplate_20b7e67eb42607cd90bb5d8b738e03ad347733f4d0ead453409ad4a865d
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_3f64f0480d0dc4712b4c994809b489e7667cfa49a2d7beae39b12e3d85a8a9f1 = $this->env->getExtension("native_profiler");
-        $__internal_3f64f0480d0dc4712b4c994809b489e7667cfa49a2d7beae39b12e3d85a8a9f1->enter($__internal_3f64f0480d0dc4712b4c994809b489e7667cfa49a2d7beae39b12e3d85a8a9f1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Ecommerce/Default/produits/layout/produits.html.twig"));
+        $__internal_6d2e0ab0d039f0103fdeb48328bfcf4254dd655248aba0e11fa4ce95e081a40c = $this->env->getExtension("native_profiler");
+        $__internal_6d2e0ab0d039f0103fdeb48328bfcf4254dd655248aba0e11fa4ce95e081a40c->enter($__internal_6d2e0ab0d039f0103fdeb48328bfcf4254dd655248aba0e11fa4ce95e081a40c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Ecommerce/Default/produits/layout/produits.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_3f64f0480d0dc4712b4c994809b489e7667cfa49a2d7beae39b12e3d85a8a9f1->leave($__internal_3f64f0480d0dc4712b4c994809b489e7667cfa49a2d7beae39b12e3d85a8a9f1_prof);
+        $__internal_6d2e0ab0d039f0103fdeb48328bfcf4254dd655248aba0e11fa4ce95e081a40c->leave($__internal_6d2e0ab0d039f0103fdeb48328bfcf4254dd655248aba0e11fa4ce95e081a40c_prof);
 
     }
 
     // line 5
     public function block_body($context, array $blocks = array())
     {
-        $__internal_72aeb22eb4175b4323003b63db324563ee121efca7c5cc43ff1029f65e8596c0 = $this->env->getExtension("native_profiler");
-        $__internal_72aeb22eb4175b4323003b63db324563ee121efca7c5cc43ff1029f65e8596c0->enter($__internal_72aeb22eb4175b4323003b63db324563ee121efca7c5cc43ff1029f65e8596c0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_30e3ca25fed47d989777104d1c2ceaa8e828d3c7e5e3c906d2d2c793a1b29642 = $this->env->getExtension("native_profiler");
+        $__internal_30e3ca25fed47d989777104d1c2ceaa8e828d3c7e5e3c906d2d2c793a1b29642->enter($__internal_30e3ca25fed47d989777104d1c2ceaa8e828d3c7e5e3c906d2d2c793a1b29642_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
         echo "
@@ -49,69 +49,70 @@ class __TwigTemplate_20b7e67eb42607cd90bb5d8b738e03ad347733f4d0ead453409ad4a865d
         $this->loadTemplate("::modulesUsed/navigation.html.twig", "@Ecommerce/Default/produits/layout/produits.html.twig", 13)->display($context);
         // line 14
         echo "                ";
+        echo $this->env->getExtension('actions')->renderUri($this->env->getExtension('http_kernel')->controller("EcommerceBundle:Panier:menu"), array());
         // line 15
         echo "                ";
+        // line 16
+        echo "                ";
         if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 16
-            echo "                    ";
-            $this->loadTemplate("UtilisateursBundle:Default:modulesUsed/utilisateursConnecte.html.twig", "@Ecommerce/Default/produits/layout/produits.html.twig", 16)->display($context);
             // line 17
+            echo "                    ";
+            $this->loadTemplate("UtilisateursBundle:Default:modulesUsed/utilisateursConnecte.html.twig", "@Ecommerce/Default/produits/layout/produits.html.twig", 17)->display($context);
+            // line 18
             echo "                ";
         } else {
-            // line 18
-            echo "                    ";
-            $this->loadTemplate("UtilisateursBundle:Default:modulesUsed/utilisateurs.html.twig", "@Ecommerce/Default/produits/layout/produits.html.twig", 18)->display($context);
             // line 19
+            echo "                    ";
+            $this->loadTemplate("UtilisateursBundle:Default:modulesUsed/utilisateurs.html.twig", "@Ecommerce/Default/produits/layout/produits.html.twig", 19)->display($context);
+            // line 20
             echo "                ";
         }
-        // line 20
-        echo "                ";
-        echo $this->env->getExtension('actions')->renderUri($this->env->getExtension('http_kernel')->controller("EcommerceBundle:Panier:menu"), array());
         // line 21
-        echo "            </div>
+        echo "
+            </div>
 
             <div class=\"span9\">
                 ";
-        // line 24
+        // line 25
         if ((twig_length_filter($this->env, (isset($context["produits"]) ? $context["produits"] : $this->getContext($context, "produits"))) != 0)) {
-            // line 25
+            // line 26
             echo "
                     <ul class=\"thumbnails\">
                     ";
-            // line 27
+            // line 28
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["produits"]) ? $context["produits"] : $this->getContext($context, "produits")));
             foreach ($context['_seq'] as $context["_key"] => $context["produit"]) {
-                // line 28
+                // line 29
                 echo "                        <li class=\"span3\">
                             <div class=\"thumbnail\">
                                 <img src=\"";
-                // line 30
+                // line 31
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["produit"], "image", array()), "path", array()), "html", null, true);
                 echo "\" alt=\"Zemenak\" width=\"300\" height=\"150\">
                                 <div class=\"caption\">
                                     <h4>";
-                // line 32
+                // line 33
                 echo twig_escape_filter($this->env, $this->getAttribute($context["produit"], "nom", array()), "html", null, true);
                 echo "</h4>
                                     <p>";
-                // line 33
+                // line 34
                 echo twig_escape_filter($this->env, $this->env->getExtension('tva_extension')->calculTva($this->getAttribute($context["produit"], "prix", array()), $this->getAttribute($this->getAttribute($context["produit"], "tva", array()), "multiplicate", array())), "html", null, true);
                 echo " £</p>
                                     <a class=\"btn btn-primary\" href=\"";
-                // line 34
+                // line 35
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("presentation", array("id" => $this->getAttribute($context["produit"], "id", array()))), "html", null, true);
                 echo "\">Plus d'infos</a>
                                     ";
-                // line 35
+                // line 36
                 if ( !$this->getAttribute((isset($context["panier"]) ? $context["panier"] : null), $this->getAttribute($context["produit"], "id", array()), array(), "array", true, true)) {
-                    // line 36
+                    // line 37
                     echo "                                        <a class=\"btn btn-success\" href=\"";
                     echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ajouter", array("id" => $this->getAttribute($context["produit"], "id", array()))), "html", null, true);
                     echo "\">Ajouter au panier</a>
                                     ";
                 }
-                // line 38
+                // line 39
                 echo "                                </div>
                             </div>
                         </li>
@@ -121,7 +122,7 @@ class __TwigTemplate_20b7e67eb42607cd90bb5d8b738e03ad347733f4d0ead453409ad4a865d
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['produit'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 43
+            // line 44
             echo "                    </ul>
 
                 <div class=\"pagination\">
@@ -137,11 +138,11 @@ class __TwigTemplate_20b7e67eb42607cd90bb5d8b738e03ad347733f4d0ead453409ad4a865d
                 </div>
                 ";
         } else {
-            // line 57
+            // line 58
             echo "                    Aucun produit Correspond à votre recherche
                 ";
         }
-        // line 59
+        // line 60
         echo "            </div>
         </div>
     </div>
@@ -149,7 +150,7 @@ class __TwigTemplate_20b7e67eb42607cd90bb5d8b738e03ad347733f4d0ead453409ad4a865d
 
 ";
         
-        $__internal_72aeb22eb4175b4323003b63db324563ee121efca7c5cc43ff1029f65e8596c0->leave($__internal_72aeb22eb4175b4323003b63db324563ee121efca7c5cc43ff1029f65e8596c0_prof);
+        $__internal_30e3ca25fed47d989777104d1c2ceaa8e828d3c7e5e3c906d2d2c793a1b29642->leave($__internal_30e3ca25fed47d989777104d1c2ceaa8e828d3c7e5e3c906d2d2c793a1b29642_prof);
 
     }
 
@@ -165,7 +166,7 @@ class __TwigTemplate_20b7e67eb42607cd90bb5d8b738e03ad347733f4d0ead453409ad4a865d
 
     public function getDebugInfo()
     {
-        return array (  145 => 59,  141 => 57,  125 => 43,  115 => 38,  109 => 36,  107 => 35,  103 => 34,  99 => 33,  95 => 32,  90 => 30,  86 => 28,  82 => 27,  78 => 25,  76 => 24,  71 => 21,  68 => 20,  65 => 19,  62 => 18,  59 => 17,  56 => 16,  53 => 15,  51 => 14,  49 => 13,  40 => 6,  34 => 5,  11 => 1,);
+        return array (  146 => 60,  142 => 58,  126 => 44,  116 => 39,  110 => 37,  108 => 36,  104 => 35,  100 => 34,  96 => 33,  91 => 31,  87 => 29,  83 => 28,  79 => 26,  77 => 25,  71 => 21,  68 => 20,  65 => 19,  62 => 18,  59 => 17,  56 => 16,  54 => 15,  51 => 14,  49 => 13,  40 => 6,  34 => 5,  11 => 1,);
     }
 }
 /* {% extends "::/layout/layout.html.twig" %}*/
@@ -181,13 +182,14 @@ class __TwigTemplate_20b7e67eb42607cd90bb5d8b738e03ad347733f4d0ead453409ad4a865d
 /* */
 /*             <div class="span3" align="left">*/
 /*                 {%  include '::modulesUsed/navigation.html.twig' %}*/
+/*                 {% render(controller('EcommerceBundle:Panier:menu')) %}*/
 /*                 {# Vérification si l'utilisateur est identifié #}*/
 /*                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}*/
 /*                     {%  include 'UtilisateursBundle:Default:modulesUsed/utilisateursConnecte.html.twig' %}*/
 /*                 {% else %}*/
 /*                     {%  include 'UtilisateursBundle:Default:modulesUsed/utilisateurs.html.twig' %}*/
 /*                 {% endif %}*/
-/*                 {% render(controller('EcommerceBundle:Panier:menu')) %}*/
+/* */
 /*             </div>*/
 /* */
 /*             <div class="span9">*/
