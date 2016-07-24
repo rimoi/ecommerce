@@ -125,9 +125,45 @@ class PanierController extends Controller
         return $this->render('EcommerceBundle:Default:panier/layout/livraison.html.twig', array('utilisateur' => $utilisateur,
                                                                                                 'form' => $form->createView()));
     }
+
+    public function setLivraisonOnSession(){
+        $session = $this->getRequest()->getSession();
+
+        if(!$session->has('adresse')) $session->set('adresse',array());
+
+        $adresse = $session->get('adresse');
+       // var_dump($this->getRequest()->request->get('livraison'));die;
+         if($this->getRequest()->request->get('livraison') != null && $this->getRequest()->request->get('facturation') != null){
+             $adresse['livraison'] = $this->getRequest()->request->get('livraison');
+             $adresse['facturation'] = $this->getRequest()->request->get('facturation');
+         } else {
+             return $this->redirect($this->generateUrl('validation'));
+         }
+
+        $session->set('adresse',$adresse);
+        return $this->redirect($this->generateUrl('validation'));
+
+    }
+
      public function validationAction()
     {
-        return $this->render('EcommerceBundle:Default:panier/layout/validation.html.twig');
+        if($this->get('request')->getMethod() == 'POST')
+            $this->setLivraisonOnSession();
+
+        $session = $this->getRequest()->getSession();
+        $em= $this->getDoctrine()->getManager();
+        $adresse = $session->get('adresse');
+
+        $produits = $em->getRepository('EcommerceBundle:Produits')->findArray(array_keys($session->get('panier')));
+
+        $livraison = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->find($adresse['livraison']);
+        $facturation = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->find($adresse['facturation']);
+
+        return $this->render('EcommerceBundle:Default:panier/layout/validation.html.twig', array('produits' => $produits,
+                                                                                                 'livraison' => $livraison,
+                                                                                                 'facturation' => $facturation,
+                                                                                                 'panier' => $session->get('panier')
+                                                                                                ));
     }
 
 

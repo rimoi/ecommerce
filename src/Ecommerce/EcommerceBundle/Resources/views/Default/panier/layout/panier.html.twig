@@ -41,7 +41,7 @@
                                 <td colspan="4"><center>Aucun Articles dans votre panier</center></td>
 
                             </tr>
-                            {% endif %}
+                        {% endif %}
                         {% for produit in produits %}
                             <tr>
                                 <form action="{{ path('ajouter', {'id':produit.id}) }}" method="get">

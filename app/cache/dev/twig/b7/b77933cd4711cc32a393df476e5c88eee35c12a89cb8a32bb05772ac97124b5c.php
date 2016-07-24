@@ -21,20 +21,20 @@ class __TwigTemplate_3e4ea9a38cd654b43d3afbe6a2f73b6137aabd4d6f432f664c191b71d3f
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b0aa536c9906bee3ad905bcc157224837c2cc46be6fedad64e9c4b62d8fc0e07 = $this->env->getExtension("native_profiler");
-        $__internal_b0aa536c9906bee3ad905bcc157224837c2cc46be6fedad64e9c4b62d8fc0e07->enter($__internal_b0aa536c9906bee3ad905bcc157224837c2cc46be6fedad64e9c4b62d8fc0e07_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EcommerceBundle:Default:panier/layout/livraison.html.twig"));
+        $__internal_5089815a3202cd011cb439bfe94519efc961b23ff4b4ba9bad4ced1c45801227 = $this->env->getExtension("native_profiler");
+        $__internal_5089815a3202cd011cb439bfe94519efc961b23ff4b4ba9bad4ced1c45801227->enter($__internal_5089815a3202cd011cb439bfe94519efc961b23ff4b4ba9bad4ced1c45801227_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EcommerceBundle:Default:panier/layout/livraison.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_b0aa536c9906bee3ad905bcc157224837c2cc46be6fedad64e9c4b62d8fc0e07->leave($__internal_b0aa536c9906bee3ad905bcc157224837c2cc46be6fedad64e9c4b62d8fc0e07_prof);
+        $__internal_5089815a3202cd011cb439bfe94519efc961b23ff4b4ba9bad4ced1c45801227->leave($__internal_5089815a3202cd011cb439bfe94519efc961b23ff4b4ba9bad4ced1c45801227_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_3b60f61e7ba358d2f5b1e4393cf61d9975d9e86468af68412cb80b26235a5ee6 = $this->env->getExtension("native_profiler");
-        $__internal_3b60f61e7ba358d2f5b1e4393cf61d9975d9e86468af68412cb80b26235a5ee6->enter($__internal_3b60f61e7ba358d2f5b1e4393cf61d9975d9e86468af68412cb80b26235a5ee6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_8d8adccf0e0c2c1e67580da9a48c16943b5ae8f98123fe869a3029279b90b6d3 = $this->env->getExtension("native_profiler");
+        $__internal_8d8adccf0e0c2c1e67580da9a48c16943b5ae8f98123fe869a3029279b90b6d3->enter($__internal_8d8adccf0e0c2c1e67580da9a48c16943b5ae8f98123fe869a3029279b90b6d3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "    ";
@@ -67,7 +67,7 @@ class __TwigTemplate_3e4ea9a38cd654b43d3afbe6a2f73b6137aabd4d6f432f664c191b71d3f
             // line 17
             echo "                            <form action=\"";
             echo $this->env->getExtension('routing')->getPath("validation");
-            echo "\">
+            echo "\" method=\"post\">
 
                                 <h4>Adresse de livraison</h4>
                                 ";
@@ -90,7 +90,7 @@ class __TwigTemplate_3e4ea9a38cd654b43d3afbe6a2f73b6137aabd4d6f432f664c191b71d3f
             foreach ($context['_seq'] as $context["_key"] => $context["adresse"]) {
                 // line 21
                 echo "                                <label class=\"radio\">
-                                    <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios1\" value=\"";
+                                    <input type=\"radio\" name=\"livraison\"  value=\"";
                 // line 22
                 echo twig_escape_filter($this->env, $this->getAttribute($context["adresse"], "id", array()), "html", null, true);
                 echo "\" ";
@@ -152,7 +152,7 @@ class __TwigTemplate_3e4ea9a38cd654b43d3afbe6a2f73b6137aabd4d6f432f664c191b71d3f
             foreach ($context['_seq'] as $context["_key"] => $context["adresse"]) {
                 // line 31
                 echo "                                <label class=\"radio\">
-                                    <input type=\"radio\" name=\"facturation\" id=\"optionsRadios1\" value=\"";
+                                    <input type=\"radio\" name=\"facturation\"  value=\"";
                 // line 32
                 echo twig_escape_filter($this->env, $this->getAttribute($context["adresse"], "id", array()), "html", null, true);
                 echo "\" ";
@@ -223,7 +223,7 @@ class __TwigTemplate_3e4ea9a38cd654b43d3afbe6a2f73b6137aabd4d6f432f664c191b71d3f
 
 ";
         
-        $__internal_3b60f61e7ba358d2f5b1e4393cf61d9975d9e86468af68412cb80b26235a5ee6->leave($__internal_3b60f61e7ba358d2f5b1e4393cf61d9975d9e86468af68412cb80b26235a5ee6_prof);
+        $__internal_8d8adccf0e0c2c1e67580da9a48c16943b5ae8f98123fe869a3029279b90b6d3->leave($__internal_8d8adccf0e0c2c1e67580da9a48c16943b5ae8f98123fe869a3029279b90b6d3_prof);
 
     }
 
@@ -258,12 +258,12 @@ class __TwigTemplate_3e4ea9a38cd654b43d3afbe6a2f73b6137aabd4d6f432f664c191b71d3f
 /*                     <div class="accordion-inner">*/
 /*                         <div class="span4">*/
 /*                             {% if utilisateur.adresses|length != 0 %}*/
-/*                             <form action="{{path('validation')}}">*/
+/*                             <form action="{{path('validation')}}" method="post">*/
 /* */
 /*                                 <h4>Adresse de livraison</h4>*/
 /*                                 {% for adresse in utilisateur.adresses %}*/
 /*                                 <label class="radio">*/
-/*                                     <input type="radio" name="optionsRadios" id="optionsRadios1" value="{{ adresse.id }}" {%  if loop.index0 == 0 %}checked="checked"{% endif %}>*/
+/*                                     <input type="radio" name="livraison"  value="{{ adresse.id }}" {%  if loop.index0 == 0 %}checked="checked"{% endif %}>*/
 /*                                    {{ adresse.adresse }}, {{ adresse.cp }} {{ adresse.ville }} <a href="{{ path('livraisonAdresseSuppression', {'id' : adresse.id}) }}"><i class="icon-trash"></i></a>*/
 /*                                     <br>*/
 /*                                     {{ adresse.nom }} {{ adresse.prenom }}*/
@@ -273,7 +273,7 @@ class __TwigTemplate_3e4ea9a38cd654b43d3afbe6a2f73b6137aabd4d6f432f664c191b71d3f
 /*                                 <h4>Adresse de facturation</h4>*/
 /*                                 {% for adresse in utilisateur.adresses %}*/
 /*                                 <label class="radio">*/
-/*                                     <input type="radio" name="facturation" id="optionsRadios1" value="{{ adresse.id }}" {%  if loop.index0 == 0 %}checked="checked"{% endif %}>*/
+/*                                     <input type="radio" name="facturation"  value="{{ adresse.id }}" {%  if loop.index0 == 0 %}checked="checked"{% endif %}>*/
 /*                                    {{ adresse.adresse }}, {{ adresse.cp }} {{ adresse.ville }} <a href="{{ path('livraisonAdresseSuppression', {'id': adresse.id}) }}"><i class="icon-trash"></i></a>*/
 /*                                     <br>*/
 /*                                     {{ adresse.nom }} {{ adresse.prenom }}*/
