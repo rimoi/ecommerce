@@ -335,6 +335,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\PanierController::validationAction',  '_route' => 'validation',);
                 }
 
+                // livraisonAdresseSuppression
+                if (0 === strpos($pathinfo, '/panier/livraison/adresse/suppresion') && preg_match('#^/panier/livraison/adresse/suppresion/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'livraisonAdresseSuppression')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\PanierController::adresseSuppressionAction',));
+                }
+
             }
 
         }
@@ -355,7 +360,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         // categorie
         if (0 === strpos($pathinfo, '/categorie') && preg_match('#^/categorie/(?P<categorie>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'categorie')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsController::categoriesAction',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'categorie')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsController::produitsAction',));
         }
 
         // rechercheProduits

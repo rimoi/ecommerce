@@ -4,23 +4,30 @@ namespace Ecommerce\EcommerceBundle\Controller;
 
 use Ecommerce\EcommerceBundle\Form\RechercheType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Ecommerce\EcommerceBundle\Entity\Categories;
 class ProduitsController extends Controller
 {
 
 
-    public function produitsAction()
+    public function produitsAction(Categories $categorie = null)
     {
+        //var_dump($categorie);die;
         $session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getManager();
+        if($categorie != null){
+            $produits = $em->getRepository('EcommerceBundle:Produits')->byCategories($categorie);
+        }else{
+            // récuperation de tous les produits
+            $produits = $em->getRepository('EcommerceBundle:Produits')->findBy(array('disponible' => 1));
+        }
+
+        // existance du panier
         if(!$session->has('panier'))
         {
             $panier = false;
         }else{
             $panier = $session->get('panier');
         }
-        $em = $this->getDoctrine()->getManager();
-        // récuperation de tous les produits
-        $produits = $em->getRepository('EcommerceBundle:Produits')->findBy(array('disponible' => 1));
 
         return $this->render('EcommerceBundle:Default:produits/layout/produits.html.twig',array('produits' => $produits,'panier' => $panier));
     }
@@ -45,21 +52,7 @@ class ProduitsController extends Controller
     }
 
 
-    public function categoriesAction($categorie)
-    {
-        $em = $this->getDoctrine()->getManager();
-        // vérification de l'existance d'une catégories
-        $categories = $em->getRepository('EcommerceBundle:Produits')->findBy(array('categorie' => $categorie));
-        if(!$categories) throw $this->createNotFoundException('Aucun resultat ne correpond à cette catégorie !!! ');
-        // récuperation de tous les produits
-        $produits = $em->getRepository('EcommerceBundle:Produits')->byCategories($categorie);
 
-       //
-
-
-        return $this->render('EcommerceBundle:Default:produits/layout/produits.html.twig', array('produits' => $produits));
-
-    }
 
     public function rechercheAction(){
 

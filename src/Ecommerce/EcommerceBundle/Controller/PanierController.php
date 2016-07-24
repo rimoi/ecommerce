@@ -2,8 +2,11 @@
 
 namespace Ecommerce\EcommerceBundle\Controller;
 
+use Ecommerce\EcommerceBundle\Entity\UtilisateursAdresses;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Ecommerce\EcommerceBundle\Form\UtilisateursAdressesType;
+//use Ecommerce\EcommerceBundle\Entity\UtilisateursAdresses;
 
 class PanierController extends Controller
 {
@@ -83,9 +86,44 @@ class PanierController extends Controller
         return $this->redirect($this->generateUrl('panier'));
 
     }
+
+    public function adresseSuppressionAction($id){
+        $em =  $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->find($id);
+
+        if($this->container->get('security.context')->getToken()->getUser() != $entity->getUtilisateur() || !$entity)
+            return $this->redirect($this->generateUrl('livraison'));
+
+
+        $em->remove($entity);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('livraison'));
+    }
+
     public function livraisonAction()
     {
-        return $this->render('EcommerceBundle:Default:panier/layout/livraison.html.twig');
+        // utilisateur courant
+        $utilisateur = $this->container->get('security.context')->getToken()->getUser();
+        $entity = new UtilisateursAdresses();;
+        $form = $this->createForm(new UtilisateursAdressesType(), $entity);
+
+        if($this->get('request')->getMethod() == 'POST'){
+            $form->handleRequest($this->get('request'));
+            //var_dump($form->getData());die;
+            if($form->isValid()){
+                $em= $this->getDoctrine()->getManager();
+                $entity->setUtilisateur($utilisateur);
+                $em->persist($entity);
+                $em->flush();
+                $this->get('session')->getFlashBag()->add('success','Adresse Ajouté avec success');
+                return $this->redirect($this->generateUrl('livraison'));
+            }
+        }
+
+        return $this->render('EcommerceBundle:Default:panier/layout/livraison.html.twig', array('utilisateur' => $utilisateur,
+                                                                                                'form' => $form->createView()));
     }
      public function validationAction()
     {
