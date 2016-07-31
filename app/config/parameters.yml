@@ -10,10 +10,8 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: 44b8ad9f1f1e5267d7de62fc5d3560e4fa649b7f
-
 twig:
     globals:
-        telephone: +(33) 6 61 69 86 30
-        fax: 02 35 00 00 00
-        adresse: Bordeaux 33 000 - 3 rue des jardins
-
+        telephone: '+(33) 6 61 69 86 30'
+        fax: '02 35 00 00 00'
+        adresse: 'Bordeaux 33 000 - 3 rue des jardins'

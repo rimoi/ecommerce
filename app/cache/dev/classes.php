@@ -5180,6 +5180,8 @@ $trace = $e->getTrace();
 foreach ($trace as $frame) {
 if (isset($frame['file'])) {
 $data['trace'][] = $frame['file'].':'.$frame['line'];
+} elseif (isset($frame['function']) && $frame['function'] ==='{closure}') {
+$data['trace'][] = $frame['function'];
 } else {
 $data['trace'][] = $this->toJson($this->normalize($frame), true);
 }
@@ -5469,6 +5471,7 @@ public function __destruct()
 try {
 $this->close();
 } catch (\Exception $e) {
+} catch (\Throwable $e) {
 }
 }
 protected function getDefaultFormatter()
@@ -5538,10 +5541,14 @@ public function getStream()
 {
 return $this->stream;
 }
+public function getUrl()
+{
+return $this->url;
+}
 protected function write(array $record)
 {
 if (!is_resource($this->stream)) {
-if (!$this->url) {
+if (null === $this->url ||''=== $this->url) {
 throw new \LogicException('Missing stream url, the stream can not be opened. This may be caused by a premature call to close().');
 }
 $this->createDir();
@@ -5637,6 +5644,21 @@ public function isHandling(array $record)
 {
 return true;
 }
+public function activate()
+{
+if ($this->stopBuffering) {
+$this->buffering = false;
+}
+if (!$this->handler instanceof HandlerInterface) {
+$record = end($this->buffer) ?: null;
+$this->handler = call_user_func($this->handler, $record, $this);
+if (!$this->handler instanceof HandlerInterface) {
+throw new \RuntimeException("The factory callable should return a HandlerInterface");
+}
+}
+$this->handler->handleBatch($this->buffer);
+$this->buffer = array();
+}
 public function handle(array $record)
 {
 if ($this->processors) {
@@ -5650,17 +5672,7 @@ if ($this->bufferSize > 0 && count($this->buffer) > $this->bufferSize) {
 array_shift($this->buffer);
 }
 if ($this->activationStrategy->isHandlerActivated($record)) {
-if ($this->stopBuffering) {
-$this->buffering = false;
-}
-if (!$this->handler instanceof HandlerInterface) {
-$this->handler = call_user_func($this->handler, $record, $this);
-if (!$this->handler instanceof HandlerInterface) {
-throw new \RuntimeException("The factory callable should return a HandlerInterface");
-}
-}
-$this->handler->handleBatch($this->buffer);
-$this->buffer = array();
+$this->activate();
 }
 } else {
 $this->handler->handle($record);

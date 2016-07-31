@@ -15,8 +15,8 @@ class __TwigTemplate_81f266688b09bbd08a902dfdbd7b4f26125342c58def9d649c72403448f
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_2c7c3c34d927ba3fe299acaaacd49c4621e32c6ada476d37da6a63c1716df5f3 = $this->env->getExtension("native_profiler");
-        $__internal_2c7c3c34d927ba3fe299acaaacd49c4621e32c6ada476d37da6a63c1716df5f3->enter($__internal_2c7c3c34d927ba3fe299acaaacd49c4621e32c6ada476d37da6a63c1716df5f3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EcommerceBundle:Default:panier/modulesUsed/panier.html.twig"));
+        $__internal_a1dfb5917b3bfb5485d8c2dbdb74124f4526325831706676522a9df01f84bba7 = $this->env->getExtension("native_profiler");
+        $__internal_a1dfb5917b3bfb5485d8c2dbdb74124f4526325831706676522a9df01f84bba7->enter($__internal_a1dfb5917b3bfb5485d8c2dbdb74124f4526325831706676522a9df01f84bba7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EcommerceBundle:Default:panier/modulesUsed/panier.html.twig"));
 
         // line 1
         echo "
@@ -56,7 +56,7 @@ class __TwigTemplate_81f266688b09bbd08a902dfdbd7b4f26125342c58def9d649c72403448f
     </ul>
 </div>";
         
-        $__internal_2c7c3c34d927ba3fe299acaaacd49c4621e32c6ada476d37da6a63c1716df5f3->leave($__internal_2c7c3c34d927ba3fe299acaaacd49c4621e32c6ada476d37da6a63c1716df5f3_prof);
+        $__internal_a1dfb5917b3bfb5485d8c2dbdb74124f4526325831706676522a9df01f84bba7->leave($__internal_a1dfb5917b3bfb5485d8c2dbdb74124f4526325831706676522a9df01f84bba7_prof);
 
     }
 

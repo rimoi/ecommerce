@@ -15,8 +15,8 @@ class __TwigTemplate_6bd61b3ae70790f92a85649196b8d88d2bbbb2614e2e88b27212db821c5
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_6919339c134a2a022ade4e54dba48ec3354cb4d4109b5d47ed7952e947d562fc = $this->env->getExtension("native_profiler");
-        $__internal_6919339c134a2a022ade4e54dba48ec3354cb4d4109b5d47ed7952e947d562fc->enter($__internal_6919339c134a2a022ade4e54dba48ec3354cb4d4109b5d47ed7952e947d562fc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Router/panel.html.twig"));
+        $__internal_ec3d45781c8439a765f38801d91a0af8cf124691a7517bc4a6e887bd9875b76c = $this->env->getExtension("native_profiler");
+        $__internal_ec3d45781c8439a765f38801d91a0af8cf124691a7517bc4a6e887bd9875b76c->enter($__internal_ec3d45781c8439a765f38801d91a0af8cf124691a7517bc4a6e887bd9875b76c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Router/panel.html.twig"));
 
         // line 1
         echo "<h2>Routing</h2>
@@ -77,7 +77,7 @@ class __TwigTemplate_6bd61b3ae70790f92a85649196b8d88d2bbbb2614e2e88b27212db821c5
             echo "    <h3>Route Redirection</h3>
 
     <p>This page redirects to:</p>
-    <div class=\"card\" style=\"break-long-words\">
+    <div class=\"card break-long-words\">
         ";
             // line 34
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["router"]) ? $context["router"] : $this->getContext($context, "router")), "targetUrl", array()), "html", null, true);
@@ -197,7 +197,7 @@ $context["trace"], "level", array()) == 2)) {
 </p>
 ";
         
-        $__internal_6919339c134a2a022ade4e54dba48ec3354cb4d4109b5d47ed7952e947d562fc->leave($__internal_6919339c134a2a022ade4e54dba48ec3354cb4d4109b5d47ed7952e947d562fc_prof);
+        $__internal_ec3d45781c8439a765f38801d91a0af8cf124691a7517bc4a6e887bd9875b76c->leave($__internal_ec3d45781c8439a765f38801d91a0af8cf124691a7517bc4a6e887bd9875b76c_prof);
 
     }
 
@@ -248,7 +248,7 @@ $context["trace"], "level", array()) == 2)) {
 /*     <h3>Route Redirection</h3>*/
 /* */
 /*     <p>This page redirects to:</p>*/
-/*     <div class="card" style="break-long-words">*/
+/*     <div class="card break-long-words">*/
 /*         {{ router.targetUrl }}*/
 /*         {% if router.targetRoute %}<span class="text-muted">(route: "{{ router.targetRoute }}")</span>{% endif %}*/
 /*     </div>*/

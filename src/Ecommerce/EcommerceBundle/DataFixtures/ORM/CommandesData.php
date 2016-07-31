@@ -24,7 +24,7 @@ class CommandesData extends AbstractFixture implements OrderedFixtureInterface
         $ccommande->setDate(new \DateTime());
         $ccommande->setReference('1');
         // petite commentaire : cette tableau va correpond id de l'article(par exemple un polo ) et le nombre d'achat (par exemple 2 achat )
-        $ccommande->setProduits(array('0' => array('1' => '2'),'1' => array('2' => '1'),'2' => array('4' => '5')));
+        $ccommande->setCommande(array('0' => array('1' => '2'),'1' => array('2' => '1'),'2' => array('4' => '5')));
         $manager->persist($ccommande);
 
         $ccommande1 = new Commandes();
@@ -32,7 +32,7 @@ class CommandesData extends AbstractFixture implements OrderedFixtureInterface
         $ccommande1->setValider('1');
         $ccommande1->setDate(new \DateTime());
         $ccommande1->setReference('1');
-        $ccommande1->setProduits(array(array('1' => '2'),array('2' => '1'),array('4' => '5')));
+        $ccommande1->setCommande(array(array('1' => '2'),array('2' => '1'),array('4' => '5')));
         $manager->persist($ccommande1);
 
         // enregitrement en base

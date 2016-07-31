@@ -147,23 +147,28 @@ class PanierController extends Controller
 
      public function validationAction()
     {
+        //$session = $this->getRequest()->getSession();
+
         if($this->get('request')->getMethod() == 'POST')
             $this->setLivraisonOnSession();
 
-        $session = $this->getRequest()->getSession();
         $em= $this->getDoctrine()->getManager();
+        // appeller un contrôleur dans un autre forwarder.
+        $prepareCommande = $this->forward('EcommerceBundle:Commandes:prepareCommande');
+        // ici getContent va nous permettre de récuperer le retour de Response
+        $commande =  $em->getRepository('EcommerceBundle:Commandes')->find($prepareCommande->getContent());
+        /*
+
         $adresse = $session->get('adresse');
 
         $produits = $em->getRepository('EcommerceBundle:Produits')->findArray(array_keys($session->get('panier')));
 
         $livraison = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->find($adresse['livraison']);
         $facturation = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->find($adresse['facturation']);
-
-        return $this->render('EcommerceBundle:Default:panier/layout/validation.html.twig', array('produits' => $produits,
-                                                                                                 'livraison' => $livraison,
-                                                                                                 'facturation' => $facturation,
-                                                                                                 'panier' => $session->get('panier')
-                                                                                                ));
+        */
+       // var_dump($commande->getCommande());die('je suis la ');
+        return $this->render('EcommerceBundle:Default:panier/layout/validation.html.twig', array('commande' => $commande
+                                                                                                  ));
     }
 
 

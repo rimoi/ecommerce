@@ -21,94 +21,198 @@ class __TwigTemplate_f1b225266aadf1ce613757730b6e7744422ab4779215837fa6ba69cb81f
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_ffd3ebba778e76470ad192c10a72d234975f59e477e1e9306df5fc4f18d163c3 = $this->env->getExtension("native_profiler");
-        $__internal_ffd3ebba778e76470ad192c10a72d234975f59e477e1e9306df5fc4f18d163c3->enter($__internal_ffd3ebba778e76470ad192c10a72d234975f59e477e1e9306df5fc4f18d163c3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Ecommerce/Default/panier/layout/livraison.html.twig"));
+        $__internal_040bec68448ebf7f9822a9d37d5f995f6798a66db1a8b23b2302cdc3cf3d283f = $this->env->getExtension("native_profiler");
+        $__internal_040bec68448ebf7f9822a9d37d5f995f6798a66db1a8b23b2302cdc3cf3d283f->enter($__internal_040bec68448ebf7f9822a9d37d5f995f6798a66db1a8b23b2302cdc3cf3d283f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Ecommerce/Default/panier/layout/livraison.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_ffd3ebba778e76470ad192c10a72d234975f59e477e1e9306df5fc4f18d163c3->leave($__internal_ffd3ebba778e76470ad192c10a72d234975f59e477e1e9306df5fc4f18d163c3_prof);
+        $__internal_040bec68448ebf7f9822a9d37d5f995f6798a66db1a8b23b2302cdc3cf3d283f->leave($__internal_040bec68448ebf7f9822a9d37d5f995f6798a66db1a8b23b2302cdc3cf3d283f_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_02d8b8eb2a71b9336e28818e0d2ec09d57cf8af41e6dffc6eb69cda8603e1e95 = $this->env->getExtension("native_profiler");
-        $__internal_02d8b8eb2a71b9336e28818e0d2ec09d57cf8af41e6dffc6eb69cda8603e1e95->enter($__internal_02d8b8eb2a71b9336e28818e0d2ec09d57cf8af41e6dffc6eb69cda8603e1e95_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_434156e7d95e9c437129b74f4e68f0dea229ab55742a2b04a3aa1d7e77e082e4 = $this->env->getExtension("native_profiler");
+        $__internal_434156e7d95e9c437129b74f4e68f0dea229ab55742a2b04a3aa1d7e77e082e4->enter($__internal_434156e7d95e9c437129b74f4e68f0dea229ab55742a2b04a3aa1d7e77e082e4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        echo "
-    <div class=\"container\">
+        echo "    ";
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashbag", array()), "get", array(0 => "success"), "method"));
+        foreach ($context['_seq'] as $context["_key"] => $context["flash"]) {
+            // line 5
+            echo "        <div class=\"alert alert-success\">
+            ";
+            // line 6
+            echo twig_escape_filter($this->env, $context["flash"], "html", null, true);
+            echo "
+        </div>
+    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flash'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 9
+        echo "    <div class=\"container\">
         <div class=\"row\">
             <div class=\"span12\">
                 <h2>Livraison</h2>
                 <div id=\"collapseOne\" class=\"accordion-body collapse in\">
                     <div class=\"accordion-inner\">
                         <div class=\"span4\">
-                            <form action=\"";
-        // line 12
-        echo $this->env->getExtension('routing')->getPath("validation");
-        echo "\">
+                            ";
+        // line 16
+        if ((twig_length_filter($this->env, $this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "adresses", array())) != 0)) {
+            // line 17
+            echo "                            <form action=\"";
+            echo $this->env->getExtension('routing')->getPath("validation");
+            echo "\" method=\"post\">
+
                                 <h4>Adresse de livraison</h4>
-                                <label class=\"radio\">
-                                    <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios1\" value=\"option1\" checked=\"\">
-                                    3b rue jules paulo, 75 000 Paris <a href=\"#\"><i class=\"icon-trash\"></i></a>
+                                ";
+            // line 20
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "adresses", array()));
+            $context['loop'] = array(
+              'parent' => $context['_parent'],
+              'index0' => 0,
+              'index'  => 1,
+              'first'  => true,
+            );
+            if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+                $length = count($context['_seq']);
+                $context['loop']['revindex0'] = $length - 1;
+                $context['loop']['revindex'] = $length;
+                $context['loop']['length'] = $length;
+                $context['loop']['last'] = 1 === $length;
+            }
+            foreach ($context['_seq'] as $context["_key"] => $context["adresse"]) {
+                // line 21
+                echo "                                <label class=\"radio\">
+                                    <input type=\"radio\" name=\"livraison\"  value=\"";
+                // line 22
+                echo twig_escape_filter($this->env, $this->getAttribute($context["adresse"], "id", array()), "html", null, true);
+                echo "\" ";
+                if (($this->getAttribute($context["loop"], "index0", array()) == 0)) {
+                    echo "checked=\"checked\"";
+                }
+                echo ">
+                                   ";
+                // line 23
+                echo twig_escape_filter($this->env, $this->getAttribute($context["adresse"], "adresse", array()), "html", null, true);
+                echo ", ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["adresse"], "cp", array()), "html", null, true);
+                echo " ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["adresse"], "ville", array()), "html", null, true);
+                echo " <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("livraisonAdresseSuppression", array("id" => $this->getAttribute($context["adresse"], "id", array()))), "html", null, true);
+                echo "\"><i class=\"icon-trash\"></i></a>
+                                    <br>
+                                    ";
+                // line 25
+                echo twig_escape_filter($this->env, $this->getAttribute($context["adresse"], "nom", array()), "html", null, true);
+                echo " ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["adresse"], "prenom", array()), "html", null, true);
+                echo "
                                 </label>
-                                <label class=\"radio\">
-                                    <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios1\" value=\"option1\" checked=\"\">
-                                    4b rue jules paulo, 75 000 Paris <a href=\"#\"><i class=\"icon-trash\"></i></a>
-                                </label>
-                                <label class=\"radio\">
-                                    <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios1\" value=\"option1\" checked=\"\">
-                                    5b rue jules paulo, 75 000 Paris <a href=\"#\"><i class=\"icon-trash\"></i></a>
-                                </label>
-
-                                <br /><br />
-
+                                ";
+                ++$context['loop']['index0'];
+                ++$context['loop']['index'];
+                $context['loop']['first'] = false;
+                if (isset($context['loop']['length'])) {
+                    --$context['loop']['revindex0'];
+                    --$context['loop']['revindex'];
+                    $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+                }
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['adresse'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 28
+            echo "                                <br> <br> <br>
                                 <h4>Adresse de facturation</h4>
-                                <label class=\"radio\">
-                                    <input type=\"radio\" name=\"optionsRadios2\" id=\"optionsRadios1\" value=\"option1\" checked=\"\">
-                                    3b rue jules paulo, 75 000 Paris <a href=\"#\"><i class=\"icon-trash\"></i></a>
+                                ";
+            // line 30
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["utilisateur"]) ? $context["utilisateur"] : $this->getContext($context, "utilisateur")), "adresses", array()));
+            $context['loop'] = array(
+              'parent' => $context['_parent'],
+              'index0' => 0,
+              'index'  => 1,
+              'first'  => true,
+            );
+            if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+                $length = count($context['_seq']);
+                $context['loop']['revindex0'] = $length - 1;
+                $context['loop']['revindex'] = $length;
+                $context['loop']['length'] = $length;
+                $context['loop']['last'] = 1 === $length;
+            }
+            foreach ($context['_seq'] as $context["_key"] => $context["adresse"]) {
+                // line 31
+                echo "                                <label class=\"radio\">
+                                    <input type=\"radio\" name=\"facturation\"  value=\"";
+                // line 32
+                echo twig_escape_filter($this->env, $this->getAttribute($context["adresse"], "id", array()), "html", null, true);
+                echo "\" ";
+                if (($this->getAttribute($context["loop"], "index0", array()) == 0)) {
+                    echo "checked=\"checked\"";
+                }
+                echo ">
+                                   ";
+                // line 33
+                echo twig_escape_filter($this->env, $this->getAttribute($context["adresse"], "adresse", array()), "html", null, true);
+                echo ", ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["adresse"], "cp", array()), "html", null, true);
+                echo " ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["adresse"], "ville", array()), "html", null, true);
+                echo " <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("livraisonAdresseSuppression", array("id" => $this->getAttribute($context["adresse"], "id", array()))), "html", null, true);
+                echo "\"><i class=\"icon-trash\"></i></a>
+                                    <br>
+                                    ";
+                // line 35
+                echo twig_escape_filter($this->env, $this->getAttribute($context["adresse"], "nom", array()), "html", null, true);
+                echo " ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["adresse"], "prenom", array()), "html", null, true);
+                echo "
                                 </label>
-                                <label class=\"radio\">
-                                    <input type=\"radio\" name=\"optionsRadios2\" id=\"optionsRadios1\" value=\"option1\" checked=\"\">
-                                    4b rue jules paulo, 75 000 Paris <a href=\"#\"><i class=\"icon-trash\"></i></a>
-                                </label>
-                                <label class=\"radio\">
-                                    <input type=\"radio\" name=\"optionsRadios2\" id=\"optionsRadios1\" value=\"option1\" checked=\"\">
-                                    5b rue jules paulo, 75 000 Paris <a href=\"#\"><i class=\"icon-trash\"></i></a>
-                                </label>
-                                <button class=\"btn btn-primary\">Valider mon adresse de livraison</button>
+                                ";
+                ++$context['loop']['index0'];
+                ++$context['loop']['index'];
+                $context['loop']['first'] = false;
+                if (isset($context['loop']['length'])) {
+                    --$context['loop']['revindex0'];
+                    --$context['loop']['revindex'];
+                    $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+                }
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['adresse'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 38
+            echo "                                <br>
+                                <button class=\"btn btn-primary\">Valider mes Adresses</button>
                             </form>
-                        </div>
+
+                            ";
+        }
+        // line 43
+        echo "                        </div>
 
 
                         <div class=\"span4 offset2\">
                             <h4>Ajouter une nouvelle adresse</h4>
-                            <form>
-                                <label>Nom</label>
-                                <input type=\"text\">
-
-                                <label>Prénom</label>
-                                <input type=\"text\">
-
-                                <label>Adresse</label>
-                                <input type=\"text\">
-
-                                <label>Ville</label>
-                                <input type=\"text\">
-
-                                <label>Code postal</label>
-                                <input type=\"text\">
-
-                                <label>Ville</label>
-                                <input type=\"text\">
-
-                                <label>Téléphone</label>
-                                <input type=\"text\">                                        
-
-                                <br />
-                                <button class=\"btn btn-primary\">Ajouter</button>
+                            <form action=\"";
+        // line 48
+        echo $this->env->getExtension('routing')->getPath("livraison");
+        echo "\" method=\"post\">
+                               ";
+        // line 49
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'widget');
+        echo "
+                                <button class=\"btn btn-primary\" type=\"submit\">Ajouter</button>
                             </form>
                         </div>
                     </div>
@@ -119,7 +223,7 @@ class __TwigTemplate_f1b225266aadf1ce613757730b6e7744422ab4779215837fa6ba69cb81f
 
 ";
         
-        $__internal_02d8b8eb2a71b9336e28818e0d2ec09d57cf8af41e6dffc6eb69cda8603e1e95->leave($__internal_02d8b8eb2a71b9336e28818e0d2ec09d57cf8af41e6dffc6eb69cda8603e1e95_prof);
+        $__internal_434156e7d95e9c437129b74f4e68f0dea229ab55742a2b04a3aa1d7e77e082e4->leave($__internal_434156e7d95e9c437129b74f4e68f0dea229ab55742a2b04a3aa1d7e77e082e4_prof);
 
     }
 
@@ -135,13 +239,17 @@ class __TwigTemplate_f1b225266aadf1ce613757730b6e7744422ab4779215837fa6ba69cb81f
 
     public function getDebugInfo()
     {
-        return array (  50 => 12,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  213 => 49,  209 => 48,  202 => 43,  195 => 38,  176 => 35,  165 => 33,  157 => 32,  154 => 31,  137 => 30,  133 => 28,  114 => 25,  103 => 23,  95 => 22,  92 => 21,  75 => 20,  68 => 17,  66 => 16,  57 => 9,  48 => 6,  45 => 5,  40 => 4,  34 => 3,  11 => 1,);
     }
 }
 /* {% extends "::/layout/layout.html.twig" %}*/
 /* */
 /* {% block body %}*/
-/* */
+/*     {% for flash in app.session.flashbag.get('success') %}*/
+/*         <div class="alert alert-success">*/
+/*             {{ flash }}*/
+/*         </div>*/
+/*     {% endfor %}*/
 /*     <div class="container">*/
 /*         <div class="row">*/
 /*             <div class="span12">*/
@@ -149,67 +257,41 @@ class __TwigTemplate_f1b225266aadf1ce613757730b6e7744422ab4779215837fa6ba69cb81f
 /*                 <div id="collapseOne" class="accordion-body collapse in">*/
 /*                     <div class="accordion-inner">*/
 /*                         <div class="span4">*/
-/*                             <form action="{{path('validation')}}">*/
+/*                             {% if utilisateur.adresses|length != 0 %}*/
+/*                             <form action="{{path('validation')}}" method="post">*/
+/* */
 /*                                 <h4>Adresse de livraison</h4>*/
+/*                                 {% for adresse in utilisateur.adresses %}*/
 /*                                 <label class="radio">*/
-/*                                     <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">*/
-/*                                     3b rue jules paulo, 75 000 Paris <a href="#"><i class="icon-trash"></i></a>*/
+/*                                     <input type="radio" name="livraison"  value="{{ adresse.id }}" {%  if loop.index0 == 0 %}checked="checked"{% endif %}>*/
+/*                                    {{ adresse.adresse }}, {{ adresse.cp }} {{ adresse.ville }} <a href="{{ path('livraisonAdresseSuppression', {'id' : adresse.id}) }}"><i class="icon-trash"></i></a>*/
+/*                                     <br>*/
+/*                                     {{ adresse.nom }} {{ adresse.prenom }}*/
 /*                                 </label>*/
-/*                                 <label class="radio">*/
-/*                                     <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">*/
-/*                                     4b rue jules paulo, 75 000 Paris <a href="#"><i class="icon-trash"></i></a>*/
-/*                                 </label>*/
-/*                                 <label class="radio">*/
-/*                                     <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">*/
-/*                                     5b rue jules paulo, 75 000 Paris <a href="#"><i class="icon-trash"></i></a>*/
-/*                                 </label>*/
-/* */
-/*                                 <br /><br />*/
-/* */
+/*                                 {% endfor %}*/
+/*                                 <br> <br> <br>*/
 /*                                 <h4>Adresse de facturation</h4>*/
+/*                                 {% for adresse in utilisateur.adresses %}*/
 /*                                 <label class="radio">*/
-/*                                     <input type="radio" name="optionsRadios2" id="optionsRadios1" value="option1" checked="">*/
-/*                                     3b rue jules paulo, 75 000 Paris <a href="#"><i class="icon-trash"></i></a>*/
+/*                                     <input type="radio" name="facturation"  value="{{ adresse.id }}" {%  if loop.index0 == 0 %}checked="checked"{% endif %}>*/
+/*                                    {{ adresse.adresse }}, {{ adresse.cp }} {{ adresse.ville }} <a href="{{ path('livraisonAdresseSuppression', {'id': adresse.id}) }}"><i class="icon-trash"></i></a>*/
+/*                                     <br>*/
+/*                                     {{ adresse.nom }} {{ adresse.prenom }}*/
 /*                                 </label>*/
-/*                                 <label class="radio">*/
-/*                                     <input type="radio" name="optionsRadios2" id="optionsRadios1" value="option1" checked="">*/
-/*                                     4b rue jules paulo, 75 000 Paris <a href="#"><i class="icon-trash"></i></a>*/
-/*                                 </label>*/
-/*                                 <label class="radio">*/
-/*                                     <input type="radio" name="optionsRadios2" id="optionsRadios1" value="option1" checked="">*/
-/*                                     5b rue jules paulo, 75 000 Paris <a href="#"><i class="icon-trash"></i></a>*/
-/*                                 </label>*/
-/*                                 <button class="btn btn-primary">Valider mon adresse de livraison</button>*/
+/*                                 {% endfor %}*/
+/*                                 <br>*/
+/*                                 <button class="btn btn-primary">Valider mes Adresses</button>*/
 /*                             </form>*/
+/* */
+/*                             {% endif %}*/
 /*                         </div>*/
 /* */
 /* */
 /*                         <div class="span4 offset2">*/
 /*                             <h4>Ajouter une nouvelle adresse</h4>*/
-/*                             <form>*/
-/*                                 <label>Nom</label>*/
-/*                                 <input type="text">*/
-/* */
-/*                                 <label>Prénom</label>*/
-/*                                 <input type="text">*/
-/* */
-/*                                 <label>Adresse</label>*/
-/*                                 <input type="text">*/
-/* */
-/*                                 <label>Ville</label>*/
-/*                                 <input type="text">*/
-/* */
-/*                                 <label>Code postal</label>*/
-/*                                 <input type="text">*/
-/* */
-/*                                 <label>Ville</label>*/
-/*                                 <input type="text">*/
-/* */
-/*                                 <label>Téléphone</label>*/
-/*                                 <input type="text">                                        */
-/* */
-/*                                 <br />*/
-/*                                 <button class="btn btn-primary">Ajouter</button>*/
+/*                             <form action="{{ path('livraison') }}" method="post">*/
+/*                                {{ form_widget(form) }}*/
+/*                                 <button class="btn btn-primary" type="submit">Ajouter</button>*/
 /*                             </form>*/
 /*                         </div>*/
 /*                     </div>*/

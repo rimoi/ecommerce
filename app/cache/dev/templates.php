@@ -5,6 +5,7 @@
   'FrameworkBundle:Form:button_row.html.php' => 'C:\\wamp\\www\\ecommerce\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views/Form/button_row.html.php',
   'FrameworkBundle:Form:button_widget.html.php' => 'C:\\wamp\\www\\ecommerce\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views/Form/button_widget.html.php',
   'FrameworkBundle:Form:checkbox_widget.html.php' => 'C:\\wamp\\www\\ecommerce\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views/Form/checkbox_widget.html.php',
+  'FrameworkBundle:Form:choice_attributes.html.php' => 'C:\\wamp\\www\\ecommerce\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views/Form/choice_attributes.html.php',
   'FrameworkBundle:Form:choice_options.html.php' => 'C:\\wamp\\www\\ecommerce\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views/Form/choice_options.html.php',
   'FrameworkBundle:Form:choice_widget.html.php' => 'C:\\wamp\\www\\ecommerce\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views/Form/choice_widget.html.php',
   'FrameworkBundle:Form:choice_widget_collapsed.html.php' => 'C:\\wamp\\www\\ecommerce\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views/Form/choice_widget_collapsed.html.php',

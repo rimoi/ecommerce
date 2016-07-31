@@ -257,23 +257,23 @@ class Commandes extends \Ecommerce\EcommerceBundle\Entity\Commandes implements \
     /**
      * {@inheritDoc}
      */
-    public function setProduits($produits)
+    public function setCommande($produits)
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduits', [$produits]);
 
-        return parent::setProduits($produits);
+        return parent::setCommande($produits);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getProduits()
+    public function getCommande()
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduits', []);
 
-        return parent::getProduits();
+        return parent::getCommande();
     }
 
     /**
