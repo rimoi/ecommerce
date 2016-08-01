@@ -3,6 +3,12 @@
 #        class: Ecommerce\EcommerceBundle\Example
 #        arguments: ["@service_id", "plain_value", %parameter%]
 services:
+    setNewReference:
+        class: Ecommerce\EcommerceBundle\Services\GetReference
+        arguments: [@security.context, @doctrine.orm.entity_manager]
+       
+    
+    
     tva:
       class: Ecommerce\EcommerceBundle\Twig\Extension\TvaExtension
       tags:

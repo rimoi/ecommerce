@@ -94,7 +94,7 @@ class CommandesController extends Controller
     return new Response($commande->getId());
 }
 
-    // cette méthode remplace l'api banque
+    // cette mï¿½thode remplace l'api banque
 
     public function validationCommandeAction($id)
     {
@@ -105,14 +105,15 @@ class CommandesController extends Controller
         if(!$commande || $commande->getValider() == 1)
             throw $this->createNotFoundException('La commande n\'existe pas.');
         $commande->setValider(1);
-        $commande->setReference(1); // service
+        // appeller en service 
+        $commande->setReference($this->container->get('setNewReference')->reference()); // service c'est une mÃ©thode qu'on appelle des qu'on besoin. 
         $em->flush();
         // vider la session
         $session->remove('adresse');
         $session->remove('panier');
         $session->remove('commande');
 
-        $this->get('session')->getFlashBag()->add('success','Votre commande est validé avec succès');
+        $this->get('session')->getFlashBag()->add('success','Votre commande est validï¿½ avec succï¿½s');
         return $this->redirect($this->generateUrl('produits'));
     }
 
@@ -125,8 +126,8 @@ class CommandesController extends Controller
 
 
 /*{
-    // ici nous allons creér une méthode qui va stocker tous ce qu'on a fais jusqu'à présent du panier dans la base.
-    // Cette méthode va être déclarer comme en service comme ça on va pourvoir l'utiliser dans une autre méthode.
+    // ici nous allons creï¿½r une mï¿½thode qui va stocker tous ce qu'on a fais jusqu'ï¿½ prï¿½sent du panier dans la base.
+    // Cette mï¿½thode va ï¿½tre dï¿½clarer comme en service comme ï¿½a on va pourvoir l'utiliser dans une autre mï¿½thode.
     public function prepareCommandeAction(){
         $session = $this->getRequest()->getSession();
         $em =$this->getDoctrine()->getManager();
@@ -142,7 +143,7 @@ class CommandesController extends Controller
         $commande->setUtilisateur($this->container->get('security.context')->getToken()->getUser());
         $commande->setValider(0);
         $commande->setReference(0);
-        // un comptabilité il faut que toute les commande se suivent. mais ici c'est doctrine qui va sens charger de la sérialisation pour nous.
+        // un comptabilitï¿½ il faut que toute les commande se suivent. mais ici c'est doctrine qui va sens charger de la sï¿½rialisation pour nous.
         $commande->setCommande($this->facture());
 
         if (!$session->has('commande'))
@@ -158,7 +159,7 @@ class CommandesController extends Controller
     {
         $em =$this->getDoctrine()->getManager();
         $session = $this->getRequest()->getSession();
-        // générer un token pour l'api(et ça dois être pour n'importe api)
+        // gï¿½nï¿½rer un token pour l'api(et ï¿½a dois ï¿½tre pour n'importe api)
         $generator = $this->container->get('security.secure_random');
 
         $adresse = $session->get('adresse');
